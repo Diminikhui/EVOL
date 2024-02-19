@@ -1,3 +1,15 @@
+.body0-1{
+background-image: url(background.jpg);
+background-size: cover;
+background-position: center center;
+background-repeat: no-repeat;
+}
+
+.display0-1{
+text-align: center;
+
+}
+
 .glyphicon { margin-right:5px; }
 .thumbnail {
  margin-bottom: 20px;
@@ -291,6 +303,7 @@
  box-shadow: none;
  outline: none;
 }
+
 /* стили тут эти что бы цвет кнопок менять */
   .btn-primary{     
   
