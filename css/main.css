@@ -43,6 +43,15 @@ img {
 	margin-right: auto;
 }
 
+
+.product-img:after {
+	width: 265px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	background-color:rgba(0, 0, 0, .5);
+}
+
 .item-title {
     font-size: 1.5rem;
     font-weight: 500;
@@ -216,6 +225,24 @@ img {
 .none {
 	display: none;
 }
+.hidden-description {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0.9);
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+
+.card:hover .hidden-description {
+	display: block;
+}
+
+
+
+
+
 
 /* @media screen and (max-width: 600px) {
   #korzina { */

@@ -38,6 +38,9 @@ function renderProducts(productsArray) {
 									</div>
 								</div>
 
+ <p class="hidden-description">${item.description}</p>
+
+
 								<button data-cart type="button" class="btn btn-block btn-outline-warning">
 									+ в корзину
 								</button>
