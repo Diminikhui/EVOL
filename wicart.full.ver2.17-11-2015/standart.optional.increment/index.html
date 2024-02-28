@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Wicart ver2.0</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="themes/theme1.css" />
+	<link rel="stylesheet" type="text/css" href="wicart.css" />
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" ></script>
+	<!-- WI-JQ-HEADER -->
+	<script src="wicart.js"  type="text/javascript" ></script>
+	<script src="wicart.optional.js"  type="text/javascript"></script>
+	<script src="wicart.num.js"  type="text/javascript"></script>
+	<!-- WI-HEADER -->
+	<style>
+	.v {border:1px solid #999; border-radius: 5px;padding: 10px;margin-bottom: 10px; width: 340px;}
+	</style>
+</head>
+<body>
+<div style="background: #E1FFF0; width: 400px;"><a href="standart.optional.increment.zip">Загрузить архив.</a></div>	
+<div style="clear: both;"></div>
+<script>
+var priceList = {
+	"001" : {"id" : "001", "subid" : {}, "name" : "IPhone 5", "subname" : {}, "price" : "100"},
+	"002" : {"id" : "002", "subid" : {}, "name" : "IPad MINI", "subname" : {}, "price" : "200"}
+	};
+</script>	
+<h1>Пример JQuery корины для сайта1</h1>
+
+<div class="cart">
+<div class="price"><a href="#" id="basketwidjet" onclick="cart.showWinow('bcontainer', 1)"></a></div>
+
+<div style="text-align: center"><a href="#!" onclick="cart.clearBasket()">Очистить корзину</a></div>
+</div>
+<!-- WI-BASKET -->
+
+
+<div class="v">
+<div><img class="im" src="img/iphone5.png" /></div>
+Цена: <span class="wicartprice" id="wicartprice_001">20500</span> Руб. (Базовая цена 100 Руб.)</p>
+<!-- WI-VETRINE[001] -->
+<div>Кол-во: <input type="text" class="wicartnum" id="winum_001" value="3" data-min-value="1" data-max-value="10000" /></div>
+<div style="background: #F0F0F0; margin: 5px; border-radius: 5px; padding: 10px; width: 300px;">
+<input class="wicartoptional" checked type="radio" value="1000" name="hdd_001" data-good-id="001" data-subid="hdd500" data-option-name="HDD 500GB">HDD 500GB (+1000)<br/>
+<input class="wicartoptional" type="radio" value="2000" name="hdd_001" data-good-id="001" data-subid="hdd1000" data-option-name="HDD 1TB">HDD 1TB (+2000)<br/>
+</div>
+
+<div style="background: #F0F0F0; margin: 5px; border-radius: 5px; padding: 10px; width: 300px;">
+<input class="wicartoptional" checked type="radio" value="10000" name="mem_001" data-good-id="001" data-subid="mem500" data-option-name="Память 500GB">Память 500GB (+10000)<br/>
+<input class="wicartoptional" type="radio" value="20000" name="mem_001" data-good-id="001" data-subid="mem1000" data-option-name="Память 1TB">Память 1TB (+20000)<br/>
+</div>
+
+<div style="background: #F0F0F0; margin: 5px; border-radius: 5px; padding: 10px; width: 300px;">
+Цвет: <select class="wicartoptional" data-good-id="001"  name="color">
+		<option value="100" data-subid="red" data-option-name="Красный" selected>Красный (+100)</option>
+		<option value="200" data-subid="green" data-option-name="Зеленый" >Зеленый (+200)</option>
+		<option value="300" data-subid="blue" data-option-name="Синий" >Синий (+300)</option>
+</select></div>
+
+	
+<button id="wicartbutton_001" onclick="cart.addToCart(this, '001', priceList['001'])">Купить</button>
+</div>
+
+<div class="v">
+<div><img class="im" src="img/ipad.png" /></div>
+Цена: <span class="wicartprice" id="wicartprice_002">200</span> Руб. (Базовая цена 200 Руб.)</p>
+
+<div style="background: #F0F0F0; margin: 5px; border-radius: 5px; padding: 10px; width: 300px;">
+Цвет: <select class="wicartoptional" data-good-id="002"  name="color">
+		<option value="100" data-subid="red" data-option-name="Красный" selected>Красный (+100)</option>
+		<option value="200" data-subid="green" data-option-name="Зеленый" >Зеленый (+200)</option>
+		<option value="300" data-subid="blue" data-option-name="Синий" >Синий (+300)</option>
+</select></div>	
+
+<div style="background: #F0F0F0; margin: 5px; border-radius: 5px; padding: 10px; width: 300px;">
+Размер: <select class="wicartoptional" data-good-id="002" name="size">
+		<option value="1000" data-subid="size1" data-option-name="Первый" selected>Первый (+1000)</option>
+		<option value="2000" data-subid="size2" data-option-name="Второй">Второй (+2000)</option>
+		<option value="3000" data-subid="size3" data-option-name="Третий">Третий (+3000)</option>
+</select></div>	
+	
+
+	
+<!-- WI-VETRINE[002] -->	
+<button id="wicartbutton_002" onclick="cart.addToCart(this, '002', priceList['002'])">Купить</button>
+</div>
+
+<!---Форма для магазина-------------------------------->
+<div id="order" class="popup">
+<a href="#" onclick="cart.closeWindow('order', 0)" style="float:right">[закрыть]</a>
+<h4>Введите ваши контактные данные</h4>
+
+<form id="formToSend">
+<input id="fio" type="text" placeholder="Ваши фамилия и имя"  class="" />
+<input id="city" type="text" placeholder="Город"  class="text-input"/>
+<input id="phone" type="text" placeholder="Контактный телефон" class="text-input"/>
+<input id="email" type="text" placeholder="Электронная почта" class="" />
+<br>
+<textarea id="question" placeholder="Адрес"></textarea>
+<br>
+<b>Доставка:</b>
+<br>
+<select id="delivery">
+<option value="-">-</option>
+<option value="Почта РФ">Почта РФ</option>
+<option value="EMS">EMS</option>
+<option value="DHL">DHL</option>
+<option value="TNT">TNT</option>
+</select>
+<br>
+<input type="checkbox" value="V"> Предоплата
+</form>
+<button onclick="cart.sendOrder('formToSend,overflw,bsum');" href="#">Отправить заказ</button>
+</div>
+<!----------------------------------------------------->
+
+
+<script>
+var cart;
+var config;
+var wiNumInputPrefID;
+/* WI-GLOBAL-VARS */
+$(document).ready(function(){  
+    cart = new WICard("cart");
+    config = {'clearAfterSend':true, 'showAfterAdd':true};
+    
+    cart.init("basketwidjet", config);
+    WICartNum('cart', 'wicartnum', 'winum_');
+    WICartOptional('cart', 'wicartoptional', 'winum_');
+    //WICartOptionalSelect('cart', 'wicartoptional', 'winum_');
+    /* WI-MODULES */
+    
+    
+});	
+document.addEventListener('visibilitychange', function(e) {
+cart.init("basketwidjet", config);
+}, false);
+</script>
+
+</body>
+</html>
