@@ -33,8 +33,9 @@ function renderProducts(productsArray) {
 									<!-- // Счетчик -->
 
 									<div class="price">
-										
-										<div class="price__currency">${item.price} ₽</div>
+ 								   		<div class="price__weight">${item.weight}кг</div>
+ 
+ 										<div class="price__currency">${item.price} ₽</div>
 									</div>
 								</div>
 
@@ -42,7 +43,7 @@ function renderProducts(productsArray) {
 
 
 								<button data-cart type="button" class="btn btn-block btn-outline-warning">
-									B корзину
+								B корзину
 								</button>
 
 							</div>
