@@ -300,6 +300,19 @@ height: 66%;
 width: 170px;
 
 }
+
+.card.mb-4.tovar{
+box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
+border-radius: 15px;
+transform: translateY(5px);
+margin-left: 11px;
+margin-bottom: 13px;
+position: relative;
+height: 66%;
+width: 300px;
+
+}
+
 .items.counter-wrapper{
 width: 50%;
 height: 60%;
