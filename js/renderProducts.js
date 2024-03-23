@@ -40,12 +40,12 @@ function renderProducts(productsArray) {
 									</div>
 								</div>
 
- <p class="hidden-description">
+ <button class="hidden-description">
  <img class="product-img" src="img/roll/${item.imgSrc}" alt="">
  
  ${item.description}
  
- </p>
+ </button>
 
 
 								<button data-cart type="button" class="btn btn-block btn-outline-warning">
