@@ -289,7 +289,7 @@ margin-top: -10%;
 	font-size: smaller;
 }
 
-.card:hover .hidden-description {
+.card:active .hidden-description {
 	display: block;
 }
 .card-body.text-center{
