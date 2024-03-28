@@ -23,8 +23,7 @@ img {
 } */
 
 .logo {
-	margin-left:37% ;
-	
+	margin-left:175px ;
 	margin-top: 0;
 	height: 100px;
 	width: 100px;
@@ -136,24 +135,29 @@ display: flex;
 
 .price {
 	text-align: left;
+
 }
 
 .price__weight {
 	color: #6c757d!important;
 	font-size: 50%;
 	line-height: 1;
-	margin-left: 50%;
-	margin-top: -35%;
-	margin-bottom: 100%;
-	/* margin-bottom: 60%; */
+	margin-left: -55px;
+	margin-top: -2px;
+	/* margin-bottom: -20px; */
 
 }
 
 .price__currency {
-	font-size: 120%;
-	margin-bottom: 170%;
-	margin-left: -29%;
-	margin-top: -95%;
+	font-size: 110%;
+	margin-left: -107px;
+	margin-top: 15px;
+}
+
+.price__currency_korzina {
+	font-size: 55%;
+	margin-left: -107px;
+	margin-top: 15px;
 }
 
 .btn-outline-warning {
@@ -227,9 +231,10 @@ margin-top: -10%;
 
 }
 
-.cart-item__details .price__currency {
-	font-size: 18px;
+.cart-item__details .price__currency_korzina{
+	font-size: 30px;
 	margin-left: 15px;
+
 }
 
 .cart-total {
@@ -291,8 +296,9 @@ transform: translateY(5px);
 margin-left: 11px;
 margin-bottom: 13px; 
 position: relative;
-height: 78%;
-width: 80%;
+height: 125px;
+width: 408px;
+text-align: center;
 
 }
 .card-body-korzina.border-top{
@@ -301,13 +307,12 @@ width: 80%;
 
 }
 .h5{
-margin-left: 10%;	
-margin-bottom: 90% ;
-margin-top: -40%;
+margin-left: -200px;	
+margin-top: 30px;
 }
 .card-title{
 text-align: center;
-margin-left: 20%;
+
 
 }
 .alert.alert-secondary{
@@ -323,78 +328,78 @@ box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
 border-radius: 15px;
 transform: translateY(5px);
 /* margin-left: 0%; */
-margin-bottom: 13px;
 position: relative;
-height: 60%;
-width: 100%;
+height: 270px;
+width: 180px;
 
 
 }
 
 
 .items.counter-wrapper{
-width: 50%;
-height: 60%;
-margin-left: -20%;
-margin-top: -11%;
-margin-bottom: 15%;
+	width: 47px;
+	height:14px;
+	margin-left: -18px;
+	margin-top: -50px;
 	
 }
  
 .btn.btn-block.btn-outline-warning{
-
-height: 36%;
-width: 70%;
-font-size: 50%;
-line-height: 70%;
-margin-left: 55%;
-margin-top: -135% ;
-margin-bottom: 120%;
-color: 844889;
-background-color: white;
-text-align: center;
+	height: 39%;
+	width: 72%;
+	font-size: 50%;
+	line-height: 70%;
+	margin-left: 67px;
+	margin-top: -40px ;
+	color: 844889;
+	background-color: white;
+	text-align: center;
 
 }
 .col-md-6{
-	margin-right: -1%;
-	width: 50%;
-	margin-left: -1.5%;
-	margin-bottom:-30% ;
+	margin-right: -3%;
+	width: 220px;
+	margin-left: 1.5%;
+	margin-bottom:5px ;
 }
 /* медиа запросы */
-@media only screen and (min-width : 391) and (max-width : 575){
-.card.mb-4.tovar{
-	box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
-	border-radius: 15px;
-	transform: translateY(5px);
-	/* margin-left: 0%; */
-	margin-bottom: 13px;
-	position: relative;
-	height: 60%;
-	width: 100%;
+@media  screen and  (max-width : 998px){
 
+
+
+
+}
+@media  screen and  (max-width : 768px){
+	.card.mb-4.tovar{
+		box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
+		border-radius: 15px;
+		transform: translateY(5px);
+		/* margin-left: 11px; */
+		margin-bottom: 300px;
+		position: relative;
+		height: 260px;
+		width: 150px;	
 }
 .card-body.text-center{
 	box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
 	width: 88%;
-	height: 30%;
+	height: 40%;
 	border-radius: 20px;
 	transform: translateY(5px);
-	margin-left: 6%;
+	margin-left: 11px;
 	margin-right: 5px;
 	margin-bottom: 8%;
-	margin-top: 7%; 
+	margin-top: 2%; 
 	
-	}
+}	
 	.btn.btn-block.btn-outline-warning{
 
-	height: 36%;
-	width: 70%;
+	height: 39%;
+	width: 72%;
 	font-size: 50%;
 	line-height: 70%;
-	margin-left: 55%;
-	margin-top: -135% ;
-	margin-bottom: 120%;
+	margin-left: 56px;
+	margin-top: -74px ;
 	color: 844889;
 	background-color: white;
 	text-align: center;
@@ -402,22 +407,83 @@ text-align: center;
 }
 .item-title {
 
-	font-size:90%;
+	font-size:80%;
 	min-height: auto;
 	margin-top: -10%;
 	margin-bottom: -5%;
 }
 .items.counter-wrapper{
-	width: 50%;
-	height: 60%;
-	margin-left: -20%;
-	margin-top: -11%;
-	margin-bottom: 15%;
+	width: 47px;
+	height:14px;
+	margin-left: -18px;
+	margin-top: -40px;
+	}
+	.price__weight {
+		color: #6c757d!important;
+		font-size: 50%;
+		line-height: 1;
+		margin-left: -43px;
+		margin-top: -5px;
 		
 	}
+	.price__currency {
+		font-size: 100%;
+		margin-left: -90px;
+		margin-top: 22px;
+	}
+	
+	.price__currency_korzina {
+		font-size: 50%;
+		margin-left: -90px;
+		margin-top: 22px;
+	}
 
+	.col-md-6{
+		margin-right: 3%;
+		width: 160px; ;
+		margin-left: 0%;
+		margin-bottom:2px ;
+	}
+	.text-muted{
+	
+		font-size: 60%;
+		letter-spacing: -1.2px;
+		margin-top: -80%;
+		
+	}
+	.card.mb-4{
+		box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
+		border-radius: 15px;
+		transform: translateY(5px);
+		/* margin-left: 50%; */
+		margin-right: px;
+		position: relative;
+		height: 250px;
+		width: 350px;
+	
+		
+		}
+	.product-img {
+		width: 60%;
+		height: auto;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 25px;
+		margin-bottom: 15px;
+		}
+	.card-title{
+	margin-right: 70px;	
+	}
+	.cart-item__title {
+		font-family: 'Merriweather', serif;
+		font-size: 100%;
+		line-height: 1.2;
+		font-weight: 600;
+		margin-bottom: 5px;
+		/* margin-left:; */
+	}
 }
-@media only screen and ( min-width : 320px )and (max-width : 390px) {
+@media  screen and  (max-width : 576px) {
 	.card.mb-4.tovar{
 		box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
 		border-radius: 15px;
@@ -436,7 +502,7 @@ text-align: center;
 		transform: translateY(5px);
 		margin-left: 11px;
 		margin-right: 5px;
-		margin-bottom: 8%;
+		margin-bottom: 10%;
 		margin-top: 2%; 
 		
 }	
@@ -463,8 +529,8 @@ text-align: center;
 .items.counter-wrapper{
 	width: 47px;
 	height:14px;
-	margin-left: -18px;
-	margin-top: -40px;
+	margin-left: -16px;
+	margin-top: -50px;
 		
 	}
 .price__weight {
@@ -481,11 +547,17 @@ text-align: center;
 	margin-top: 22px;
 }
 
+.price__currency_korzina {
+	font-size: 50%;
+	margin-left: -90px;
+	margin-top: 22px;
+}
+
 .col-md-6{
-margin-right: -4px;
-width: 185px;
-margin-left: -5px;
-margin-bottom:10px ;
+margin-right: 3%;
+width: 160px; ;
+margin-left: 0%;
+margin-bottom:2px ;
 }
 .text-muted{
 
@@ -499,11 +571,12 @@ margin-bottom:10px ;
 	border-radius: 15px;
 	transform: translateY(5px);
 	/* margin-left: 50%; */
-	margin-right: 100%;
+	margin-right: auto;
+	margin-left: auto;
 	position: relative;
-	height: 78%;
-	width: 80%;
-	position: fixed;
+	height: 80%;
+	width: 90%;
+
 	
 	}
 .product-img {
@@ -514,11 +587,45 @@ margin-bottom:10px ;
 	margin-top: 25px;
 	margin-bottom: 15px;
 	}
+.card-title{
+margin-right: auto;	
+margin-left: auto;
+margin-top: 1%;
 }
-/* @media screen and (max-width: 600px) {
-  #korzina { */
-  /* position: fixed; /* Фиксированное положение */ 
-	/* right: 10px; /* Расстояние от правого края окна браузера */ 
-	/* top: 20%; /* Расстояние сверху */ 
-  /* }
-} */
+.cart-item__title {
+	font-family: 'Merriweather', serif;
+	font-size: 100%;
+    line-height: 1.2;
+	font-weight: 600;
+	margin-top: 55px;
+	margin-left: -205px;
+	
+}
+.logo{
+margin-left:auto;
+margin-right: auto;
+margin-bottom: 0%;
+}
+.i{
+margin-left: -5%;
+}
+
+.cart-item__top{
+width: 100%;
+height: 100px;
+}
+
+img{
+margin-left: 180px;
+width: 80px;
+}
+.items.items--small.counter-wrapper{
+margin-top:10px ;
+
+}
+.card-body-korzina.korzina{
+	height: 60%;
+	width:100%;
+
+}
+}

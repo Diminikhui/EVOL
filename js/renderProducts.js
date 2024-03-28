@@ -39,14 +39,14 @@ function renderProducts(productsArray) {
  										<div class="price__currency">${item.price} ₽</div>
 									</div>
 								</div>
-
+<!--  
  <button class="hidden-description">
  <img class="product-img" src="img/roll/${item.imgSrc}" alt="">
  
  ${item.description}
  
  </button>
-
+ -->
 
 								<button data-cart type="button" class="btn btn-block btn-outline-warning">
 								B корзину

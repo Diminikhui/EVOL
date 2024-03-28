@@ -1,6 +1,6 @@
 function calcCartPriceAndDelivery() {
 	const cartWrapper = document.querySelector('.cart-wrapper');
-	const priceElements = cartWrapper.querySelectorAll('.price__currency');
+	const priceElements = cartWrapper.querySelectorAll('price__currency_korzina');
 	const totalPriceEl = document.querySelector('.total-price');
 	const deliveryCost = document.querySelector('.delivery-cost');
 	const cartDelivery = document.querySelector('[data-cart-delivery]');

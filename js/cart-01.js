@@ -25,10 +25,7 @@ window.addEventListener('click', function (event) {
 									<div class="cart-item__img">
 										<img src="${productInfo.imgSrc}" alt="${productInfo.title}">
 									</div>
-									<div class="cart-item__desc">
-										<div class="cart-item__title">${productInfo.title}</div>
-										<!--  <div class="cart-item__weight">${productInfo.itemsInBox} / ${productInfo.weight}</div>-->
-
+									
 										<!-- cart-item__details -->
 										<div class="cart-item__details">
 
@@ -39,7 +36,7 @@ window.addEventListener('click', function (event) {
 											</div>
 
 											<div class="price">
-												<div class="price__currency">${productInfo.price}</div>
+												<div class="price__currency_korzina">${productInfo.price}</div>
 											</div>
 
 										</div>
