@@ -371,17 +371,17 @@ width: 180px;
 		/* margin-left: 11px; */
 		margin-bottom: 300px;
 		position: relative;
-		height: 260px;
-		width: 160px;	
+		height: 320px;
+		width: 200px;	
 }
 .btn.btn-block.btn-outline-warning{
 
-	height: 39%;
+	height: 32%;
 	width: 72%;
-	font-size: 50%;
+	font-size: 70%;
 	line-height: 70%;
-	margin-left: 56px;
-	margin-top: -44px ;
+	margin-left: 72px;
+	margin-top: -35px ;
 	color: 844889;
 	background-color: white;
 	text-align: center;
@@ -398,24 +398,34 @@ width: 180px;
 	margin-bottom: -5%;
 }
 .items.counter-wrapper{
-	width: 47px;
-	height:14px;
-	margin-left: -16px;
-	margin-top: -50px;
+	width: 57px;
+	height:16px;
+	margin-left: -14px;
+	margin-top: -60px;
 		
 	}
+.items__control{
+font-size: medium;
+margin-top:-5px;
+}
+.items__current{
+font-size: small;
+margin-top:-2px;
+
+}
+
 .price__weight {
 	color: #6c757d!important;
-	font-size: 50%;
+	font-size: 60%;
 	line-height: 1;
-	margin-left: -43px;
-	margin-top: -5px;
+	margin-left: -60px;
+	margin-top:5px;
 	
 }
 .price__currency {
-	font-size: 100%;
-	margin-left: -97px;
-	margin-top: 17px;
+	font-size: 130%;
+	margin-left: -120px;
+	margin-top: 30px;
 }
 
 .price__korina {
@@ -425,10 +435,10 @@ width: 180px;
 }
 
 .col-md-6{
-margin-right: 3%;
-width: 160px; ;
-margin-left: 0%;
-margin-bottom:2px ;
+	margin-right: -2px;
+	width: 160px; ;
+	margin-left: -10px;
+	margin-bottom:2px ;
 }
 .text-muted{
 
@@ -445,11 +455,16 @@ margin-bottom:2px ;
 	margin-right: auto;
 	margin-left: auto;
 	position: relative;
-	height:50%;
-	width: 120%;
+	height:400px;
+	width: 90%;
 	
 	
 	}
+.col-sm-4{
+	height:420px;
+	width: 80%;
+	margin-left: 0px;
+}
 .product-img {
 	width: 60%;
 	height: auto;
@@ -599,11 +614,22 @@ margin-left: 20px;
 }
 .items.counter-wrapper{
 	width: 47px;
-	height:14px;
+	height:12px;
 	margin-left: -16px;
 	margin-top: -50px;
 		
 	}
+.items__control{
+	font-size: small;
+	margin-top:-4px;
+	height: 20px;
+}
+
+.items__current{
+	font-size: smaller;
+	margin-top:-3.5px;
+		
+}
 .price__weight {
 	color: #6c757d!important;
 	font-size: 50%;
@@ -625,9 +651,9 @@ margin-left: 20px;
 }
 
 .col-md-6{
-margin-right: 3%;
+margin-right: 60px;
 width: 160px; ;
-margin-left: 0%;
+margin-left: -40px;
 margin-bottom:2px ;
 }
 .text-muted{
@@ -645,11 +671,23 @@ margin-bottom:2px ;
 	margin-right: auto;
 	margin-left: auto;
 	position: relative;
-	height:50%;
-	width: 120%;
-	
-	
-	}
+	height:380px;
+	width: 500px;
+
+}
+.row{
+width: 140%;
+height: 100%;
+position: relative;
+left:2%;
+right: 5%;
+}
+.col-sm-4{
+
+	position: relative;
+	top: 870px; left: -450px; 
+
+}
 .product-img {
 	width: 60%;
 	height: auto;
@@ -676,6 +714,7 @@ margin-top: 1%;
 margin-left:auto;
 margin-right: auto;
 margin-bottom: 0%;
+width: 20%;
 }
 .i{
 margin-left: -5%;
@@ -707,7 +746,7 @@ margin-top: 65px;
 }
 .itogo{
 margin-right:30px ;	
-margin-top: 45px;
+margin-top: 5px;
 }
 form{
 width:460px ;
@@ -759,6 +798,7 @@ form{
 margin-left: 20px;
 	margin-top: -30px;
 }
+
 }
 
 @media  screen and  (max-width : 576px) {
@@ -766,11 +806,10 @@ margin-left: 20px;
 		box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
 		border-radius: 15px;
 		transform: translateY(5px);
-		/* margin-left: 11px; */
 		margin-bottom: 300px;
 		position: relative;
-		height: 260px;
-		width: 160px;	
+		height: 310px;
+		width: 200px;		
 }
 .card-body.text-center{
 		box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
@@ -785,16 +824,15 @@ margin-left: 20px;
 		
 }	
 .btn.btn-block.btn-outline-warning{
-
-		height: 39%;
-		width: 72%;
-		font-size: 50%;
-		line-height: 70%;
-		margin-left: 56px;
-		margin-top: -34px ;
-		color: 844889;
-		background-color: white;
-		text-align: center;
+height: 39%;
+width: 80%;
+font-size: 80%;
+line-height: 70%;
+margin-left: 64px;
+margin-top: -16px ;
+color: 844889;
+background-color: white;
+text-align: center;
 			
 }
 .item-title {
@@ -805,24 +843,39 @@ margin-left: 20px;
 	margin-bottom: -5%;
 }
 .items.counter-wrapper{
-	width: 47px;
-	height:14px;
-	margin-left: -16px;
-	margin-top: -50px;
+	width: 55px;
+	height:15px;
+	position: relative;
+	left: 5px;
+	top: 1px;
 		
 	}
+.items__control{
+height:20px;
+position: relative;
+top: 1px;
+
+}
+.items__current{
+height:20px;
+position: relative;
+top: 1.5px;
+	
+}
 .price__weight {
 	color: #6c757d!important;
-	font-size: 50%;
+	font-size: 70%;
 	line-height: 1;
-	margin-left: -43px;
-	margin-top: -5px;
+	position: relative;
+	left: -13px;
+	top: 1px;
 	
 }
 .price__currency {
-	font-size: 100%;
-	margin-left: -90px;
-	margin-top: 22px;
+	font-size: 120%;
+	position: relative;
+	left: -23px;
+	top: 18px;
 }
 
 .price__currency_korzina {
@@ -832,10 +885,12 @@ margin-left: 20px;
 }
 
 .col-md-6{
-margin-right: 3%;
-width: 160px; ;
-margin-left: 0%;
-margin-bottom:2px ;
+	margin-right:80px;
+	width: 130px; ;
+	margin-left:11px;
+	margin-bottom:-15px ;
+	padding: 1em;
+	
 }
 .text-muted{
 
@@ -845,18 +900,13 @@ margin-bottom:2px ;
 	
 }
 .card.mb-4{
-	box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
-	border-radius: 15px;
-	transform: translateY(5px);
-	/* margin-left: 50%; */
-	margin-right: auto;
-	margin-left: auto;
-	position: relative;
-	height:80%;
-	width: 100%;
+box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
+border-radius: 15px;
+transform: translateY(5px);
 
-	
-	}
+height:80%;
+width: 125%;
+}
 .product-img {
 	width: 60%;
 	height: auto;
@@ -879,11 +929,27 @@ margin-top: 1%;
 	margin-left: -13px;
 	
 }
+
 .logo{
-margin-left:auto;
-margin-right: auto;
+margin-left:48%;
+
 margin-bottom: 0%;
+width: 35%;
 }
+.site-title{
+font-size: 150%;
+width: 360px;
+position: relative;
+margin-left: 70px;
+}
+.lead{
+font-size: 130%;
+position: relative;
+margin-left: 100px;
+width: 300px;
+
+}
+
 .i{
 margin-left: -5%;
 }
@@ -965,4 +1031,10 @@ form{
 margin-left: -15px;
 	margin-top: -20px;
 }
+.row{
+width: 500px;
+	
 }
+}
+
+
