@@ -583,11 +583,10 @@ margin-left: 20px;
 		box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
 		border-radius: 15px;
 		transform: translateY(5px);
-		/* margin-left: 11px; */
 		margin-bottom: 300px;
 		position: relative;
-		height: 260px;
-		width: 160px;	
+		height: 340px;
+		width: 240px;	
 }
 .btn.btn-block.btn-outline-warning{
 
@@ -651,10 +650,11 @@ margin-left: 20px;
 }
 
 .col-md-6{
-margin-right: 60px;
-width: 160px; ;
-margin-left: -40px;
-margin-bottom:2px ;
+	margin-right:131px;
+	width: 160px; ;
+	margin-left:-28px;
+	margin-bottom:-19px ;
+	padding: 1em;
 }
 .text-muted{
 
@@ -676,16 +676,16 @@ margin-bottom:2px ;
 
 }
 .row{
-width: 140%;
-height: 100%;
+width: 480px;
 position: relative;
-left:2%;
-right: 5%;
+left: -5px;
+margin-right: 50px;
+
 }
 .col-sm-4{
-
-	position: relative;
-	top: 870px; left: -450px; 
+position: relative;
+top: 1070px; 
+left: -450px; 
 
 }
 .product-img {
@@ -711,10 +711,22 @@ margin-top: 1%;
 	width: 70px;
 }
 .logo{
-margin-left:auto;
-margin-right: auto;
+margin-left:290px;
+
 margin-bottom: 0%;
-width: 20%;
+width: 25%;
+}
+.site-title{
+font-size: 180%;
+position: relative;
+left: 90px;
+
+}
+.lead{
+	font-size: 170%;
+	position: relative;
+	left: 90px;
+	
 }
 .i{
 margin-left: -5%;
@@ -798,6 +810,10 @@ form{
 margin-left: 20px;
 	margin-top: -30px;
 }
+.row{
+width: 800px;
+
+}
 
 }
 
@@ -806,7 +822,7 @@ margin-left: 20px;
 		box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
 		border-radius: 15px;
 		transform: translateY(5px);
-		margin-bottom: 300px;
+		margin-bottom: 30px;
 		position: relative;
 		height: 310px;
 		width: 200px;		
@@ -904,6 +920,7 @@ box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
 border-radius: 15px;
 transform: translateY(5px);
 
+
 height:80%;
 width: 125%;
 }
@@ -931,10 +948,10 @@ margin-top: 1%;
 }
 
 .logo{
-margin-left:48%;
+margin-left:190px;
 
 margin-bottom: 0%;
-width: 35%;
+width: 120px;
 }
 .site-title{
 font-size: 150%;
@@ -1033,7 +1050,14 @@ margin-left: -15px;
 }
 .row{
 width: 500px;
-	
+margin-left: auto;
+}
+.col-sm-4{
+position: relative;
+top: 80px; 
+left: 0%; 
+height: 300px;
+width:81%;
 }
 }
 
