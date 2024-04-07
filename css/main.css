@@ -579,26 +579,27 @@ margin-left: 20px;
 
 }
 @media  screen and  (max-width : 768px){
-	.card.mb-4.tovar{
-		box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
-		border-radius: 15px;
-		transform: translateY(5px);
-		margin-bottom: 300px;
-		position: relative;
-		height: 340px;
-		width: 240px;	
+
+.card.mb-4.tovar{
+box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
+border-radius: 15px;
+transform: translateY(5px);
+margin-bottom: 300px;
+position: relative;
+height: 340px;
+width: 240px;	
 }
 .btn.btn-block.btn-outline-warning{
 
-	height: 39%;
-	width: 72%;
-	font-size: 50%;
-	line-height: 70%;
-	margin-left: 56px;
-	margin-top: -44px ;
-	color: 844889;
-	background-color: white;
-	text-align: center;
+height: 41%;
+width: 72%;
+font-size: 90%;
+line-height: 70%;
+margin-left: 85px;
+margin-top: -45px ;
+color: 844889;
+background-color: white;
+text-align: center;
 		
 }
 
@@ -606,85 +607,87 @@ margin-left: 20px;
 
 .item-title {
 
-	font-size:80%;
+	font-size:120%;
 	min-height: auto;
 	margin-top: -10%;
-	margin-bottom: -5%;
+	margin-bottom: 0%;
 }
 .items.counter-wrapper{
-	width: 47px;
-	height:12px;
+	width: 65px;
+	height:16px;
 	margin-left: -16px;
-	margin-top: -50px;
+	margin-top: -73px;
 		
 	}
 .items__control{
-	font-size: small;
-	margin-top:-4px;
-	height: 20px;
+	font-size: 17px;
+	margin-top:-5px;
+	height: 30px;
 }
 
 .items__current{
-	font-size: smaller;
-	margin-top:-3.5px;
-		
+	font-size: 17px;
+	margin-top:-5px;
+	height: 30px;
 }
 .price__weight {
 	color: #6c757d!important;
-	font-size: 50%;
+	font-size: 90%;
 	line-height: 1;
-	margin-left: -43px;
-	margin-top: -5px;
+	margin-left: -80px;
+	margin-top: -10px;
 	
 }
 .price__currency {
-	font-size: 100%;
-	margin-left: -97px;
-	margin-top: 17px;
+	font-size: 140%;
+	position: relative;
+	left: -30px;
+	top: -10px;
 }
 
 .price__korina {
 	font-size: 90%;
-	margin-left:0px;
-	margin-top: 8px;
+	margin-left:30px;
+	margin-top: 20px;
 }
 
 .col-md-6{
-	margin-right:131px;
+	margin-right:134px;
 	width: 160px; ;
-	margin-left:-28px;
+	margin-left:-32px;
 	margin-bottom:-19px ;
 	padding: 1em;
+	
+	
 }
 .text-muted{
 
-	font-size: 60%;
+	font-size: 90%;
     letter-spacing: -1.2px;
-	margin-top: -80%;
+	margin-top: -60%;
 	
 }
 .card.mb-4{
 	box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
 	border-radius: 15px;
 	transform: translateY(5px);
-	/* margin-left: 50%; */
-	margin-right: auto;
-	margin-left: auto;
-	position: relative;
 	height:380px;
-	width: 500px;
-
+	width: 550px;
+margin-left:-20px;
+margin-right: auto;
+margin-top: -0px;
 }
 .row{
 width: 480px;
 position: relative;
-left: -5px;
-margin-right: 50px;
+left: -20px;
+right: 10px;
+margin-left: 10px;
 
 }
 .col-sm-4{
 position: relative;
-top: 1070px; 
+top: 870px; 
 left: -450px; 
 
 }
@@ -703,12 +706,12 @@ margin-top: 1%;
 }
 .cart-item__title {
 	font-family: 'Merriweather', serif;
-	font-size: 100%;
+	font-size: 120%;
     line-height: 1.2;
 	font-weight: 600;
-	margin-top: -80px;
-	margin-left: 28px;
-	width: 70px;
+	margin-top: -15px;
+	margin-left: -37px;
+	width: 80px;
 }
 .logo{
 margin-left:290px;
@@ -733,19 +736,26 @@ margin-left: -5%;
 }
 
 .cart-item__top{
-width: 100%;
-height: 100px;
+width: 130%;
+height: 130px;
+margin-left: 20px;
 }
 
-img{
-margin-left: -30px;
+
+.img-corina{
+margin-left: -20px;
 margin-top: 20px;
-width: 70px;
+width: 190px;
+height: 100px;
 }
 .items.items--small.counter-wrapper{
-margin-top:50px ;
-margin-left: auto;
-margin-right: auto;
+margin-top:73px ;
+margin-left: 90px;
+position: relative;
+left: 15px;
+width: 135px;
+height: 13px;
+
 }
 .card-body-korzina.korzina{
 	height: 60%;
@@ -754,11 +764,12 @@ margin-right: auto;
 }
 .btn.btn-primary{
 margin-left: -10px;
-margin-top: 65px;
+margin-top: 35px;
 }
 .itogo{
-margin-right:30px ;	
-margin-top: 5px;
+margin-right:300px ;	
+margin-top: 55px;
+font-size: 20px;
 }
 form{
 width:460px ;
@@ -775,9 +786,10 @@ margin-right: auto;
 margin-top: 0%;
 }
 .cart-item{
-width: 80px;	
-margin-left: auto;
-margin-right: auto;
+width: 100px;	
+height: 150px;
+margin-left:10px;
+
 }
 .cart-item__desc {
 width: 100px;
@@ -786,14 +798,17 @@ margin-left: auto;
 margin-right: auto;
 }
 .price__currency_korina{
-	margin-left:-68px;
-	margin-top:16px;
-	font-size: 100%;
+	margin-left:-87px;
+	margin-top:17px;
+	font-size: 130%;
 }
 .cart-wrapper{
-height: 100%;	
-
-overflow: auto;
+	height:100%;	
+	width: 80%;
+	display:inline-flex;
+	overflow: auto;
+	position: relative;
+	left: 0%;
 }
 .card-body-korzina.border-top{
 	height: 50%;
@@ -807,8 +822,9 @@ form{
 	margin-bottom: 80px;
 }
 .cart-item__details{
-margin-left: 20px;
-	margin-top: -30px;
+margin-left: -136px;
+	margin-top: -40px;
+	width: 180px;
 }
 .row{
 width: 800px;
@@ -845,7 +861,7 @@ width: 80%;
 font-size: 80%;
 line-height: 70%;
 margin-left: 64px;
-margin-top: -16px ;
+margin-top: -55px ;
 color: 844889;
 background-color: white;
 text-align: center;
@@ -853,7 +869,7 @@ text-align: center;
 }
 .item-title {
 
-	font-size:80%;
+	font-size:120%;
 	min-height: auto;
 	margin-top: -10%;
 	margin-bottom: -5%;
@@ -862,20 +878,20 @@ text-align: center;
 	width: 55px;
 	height:15px;
 	position: relative;
-	left: 5px;
-	top: 1px;
+	left: -1px;
+	top: -12px;
 		
 	}
 .items__control{
-height:20px;
+font-size:18px;
 position: relative;
 top: 1px;
 
 }
 .items__current{
-height:20px;
+font-size:15px;
 position: relative;
-top: 1.5px;
+top:2px;
 	
 }
 .price__weight {
@@ -883,34 +899,34 @@ top: 1.5px;
 	font-size: 70%;
 	line-height: 1;
 	position: relative;
-	left: -13px;
-	top: 1px;
+	left: 10px;
+	top: -16px;
 	
 }
 .price__currency {
 	font-size: 120%;
 	position: relative;
-	left: -23px;
-	top: 18px;
+	left: -5px;
+	top: -13px;
 }
 
-.price__currency_korzina {
+.price__korina {
 	font-size: 50%;
-	margin-left: -90px;
-	margin-top: 22px;
+	margin-left: -120px;
+	margin-top: 2px;
 }
 
 .col-md-6{
-	margin-right:80px;
+	margin-right:45px;
 	width: 130px; ;
-	margin-left:11px;
+	margin-left:50px;
 	margin-bottom:-15px ;
 	padding: 1em;
 	
 }
 .text-muted{
 
-	font-size: 60%;
+	font-size: 70%;
     letter-spacing: -1.2px;
 	margin-top: -80%;
 	
@@ -919,10 +935,8 @@ top: 1.5px;
 box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
 border-radius: 15px;
 transform: translateY(5px);
-
-
-height:80%;
-width: 125%;
+height:115%;
+width: 105%;
 }
 .product-img {
 	width: 60%;
@@ -936,19 +950,20 @@ width: 125%;
 margin-right: auto;	
 margin-left: auto;
 margin-top: 1%;
+font-size: 25px;
 }
 .cart-item__title {
 	font-family: 'Merriweather', serif;
-	font-size: 100%;
+	font-size: 115%;
     line-height: 1.2;
 	font-weight: 600;
 	margin-top: -10px;
-	margin-left: -13px;
-	
+	margin-left: -21px;
+	width: 100px;
 }
 
 .logo{
-margin-left:190px;
+margin-left:180px;
 
 margin-bottom: 0%;
 width: 120px;
@@ -957,12 +972,12 @@ width: 120px;
 font-size: 150%;
 width: 360px;
 position: relative;
-margin-left: 70px;
+margin-left: -23px;
 }
 .lead{
 font-size: 130%;
 position: relative;
-margin-left: 100px;
+margin-left: 5px;
 width: 300px;
 
 }
@@ -982,9 +997,11 @@ margin-right: auto;
 width: 80px;
 }
 .items.items--small.counter-wrapper{
-margin-top:50px ;
-margin-left: auto;
-margin-right: auto;
+margin-top:70px ;
+margin-left: 11px;
+width: 70px;
+height: 18px;
+
 }
 .card-body-korzina.korzina{
 	height: 60%;
@@ -992,15 +1009,21 @@ margin-right: auto;
 
 }
 .btn.btn-primary{
-margin-left: -10px;
-margin-top: 50px;
+position: relative;
+left: auto;
+right: auto;
+margin-top: 20px;
 }
 .itogo{
-margin-right:300px ;	
+position: relative;
+top: 0px;
+left: 10px;	
+font-size: 20px;
+width: 140px;
 }
 form{
 width:460px ;
-height: 230px;	
+height: 200px;	
 margin-top: 30px;
 
 }
@@ -1014,8 +1037,9 @@ margin-top: 0%;
 }
 .cart-item{
 width: 80px;	
-margin-left: auto;
-margin-right: auto;
+height: 100px;
+margin-left: 10px;
+
 }
 .cart-item__desc {
 width: 100px;
@@ -1023,18 +1047,21 @@ height: 50px;
 margin-left: auto;
 margin-right: auto;
 }
-.price__currency_korina{
-	margin-left:-63px;
-	margin-top:22px;
-	font-size: 100%;
+.price__korina{
+font-size: 16px;
+position: relative;
+left: -5px;
 }
 .cart-wrapper{
 height: 100%;	
+width: 80%;
 display:inline-flex;
 overflow: auto;
+position: relative;
+left: 0%;
 }
 .card-body-korzina.border-top{
-	height: 50%;
+	height: 100%;
 	width: 100%;
 	margin-top: 40px;
 	}
@@ -1045,8 +1072,8 @@ form{
 	margin-bottom: 80px;
 }
 .cart-item__details{
-margin-left: -15px;
-	margin-top: -20px;
+margin-left: -20px;
+	margin-top: -30px;
 }
 .row{
 width: 500px;
@@ -1055,9 +1082,15 @@ margin-left: auto;
 .col-sm-4{
 position: relative;
 top: 80px; 
-left: 0%; 
+left: 58px; 
 height: 300px;
 width:81%;
+}
+.price__currency_korina{
+position: relative;
+top: 5px;
+left: -13px;
+font-size: 19px;
 }
 }
 

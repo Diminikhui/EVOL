@@ -43,13 +43,7 @@
 .list-group-item-text {
  margin: 0 0 11px
 }
-.form-container{
- background: #ecf0f3;
- font-family: 'Nunito', sans-serif;
- padding: 40px;
- border-radius: 20px;
- box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
-}
+
 
 .form-container .form-icon{
  color: #ac40ab;
@@ -127,13 +121,7 @@
  outline: none;
 }
 
-.form-container{
- background: #ecf0f3;
- font-family: 'Nunito', sans-serif;
- padding: 40px;
- border-radius: 20px;
- box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
-}
+
 
 .form-container .form-icon{
  color: #ac40ab;
@@ -214,8 +202,10 @@
  background: #ecf0f3;
  font-family: 'Nunito', sans-serif;
  padding: 40px;
- border-radius: 20px;
+ border-radius: 40px;
  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+ margin-top: 120px;
+
 }
 
 .form-container .form-icon{
@@ -314,5 +304,79 @@
   color: white;
   
   }
-	  
+
+
+
+.all-button{
+margin-top: 0px;
+
+}
+
+.button-up{
+margin-top: 350px;
+margin-left:auto;
+margin-right: auto;
+background-color: white;
+color: black;
+border: 2px solid hwb(310 20% 56%);
+width: 250px;
+height: 55px;
+border-radius: 12px;
+text-align: center;
+  
+}
+	
+.btn.btn.primary{
+font-size: 28px;
+position: relative;
+top: -2px;
+
+}
+
+.button{
+margin-left:auto;
+margin-right: auto;
+margin-top:25px ;
+background-color: white;
+color: black;
+border: 2px solid hwb(310 20% 56%);
+width: 250px;
+height: 55px;
+border-radius: 12px;
+text-align: center;
+font-size: 30px;
+  
+}
+
+.btn.btn-primara{
+font-size: 25px;
+position: relative;
+top: 0px;
+  
+}
+.up-pink{
+top: -120px;
+right: -180px;
+position: absolute;
+height: 500px;
+width: 500px;
+}
+.bottom-left{
+bottom: -170px;
+left: -100px;
+position: absolute;
+height: 500px;	
+width: 500px;
     
+}
+      
+
+.fa.fa-user{
+margin-top: 20px;
+
+}
+    
+.btn.btn-default{
+color: white;
+
+}

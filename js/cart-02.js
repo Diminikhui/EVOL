@@ -34,7 +34,7 @@ window.addEventListener('click', function (event) {
 			const cartItemHTML = `<div class="cart-item" data-id="${productInfo.id}">
 								<div class="cart-item__top">
 									<div class="cart-item__img">
-										<img src="${productInfo.imgSrc}" alt="${productInfo.title}">
+										<img class="img-corina" src="${productInfo.imgSrc}" alt="${productInfo.title}">
 									</div>
 									<div class="cart-item__desc">
 										<div class="cart-item__title">${productInfo.title}</div>
