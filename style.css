@@ -1,4 +1,7 @@
+body{
+padding: 0;
 
+}
 .glyphicon { margin-right:5px; } */
 
 .thumbnail {
@@ -313,35 +316,33 @@ margin-top: 0px;
 }
 
 .button-up{
-margin-top: 350px;
-margin-left:auto;
-margin-right: auto;
+margin-top: 450px;
+margin-left:35%;
 background-color: white;
 color: black;
 border: 2px solid hwb(310 20% 56%);
-width: 250px;
-height: 55px;
+width: 30%;
+height: 50px;
 border-radius: 12px;
 text-align: center;
   
 }
 	
 .btn.btn.primary{
-font-size: 28px;
+font-size: 30px;
 position: relative;
-top: -2px;
+top: -8px;
 
 }
 
 .button{
-margin-left:auto;
-margin-right: auto;
-margin-top:25px ;
+margin-left:35%;
+margin-top:35px ;
 background-color: white;
 color: black;
 border: 2px solid hwb(310 20% 56%);
-width: 250px;
-height: 55px;
+width: 30%;
+height: 50px;
 border-radius: 12px;
 text-align: center;
 font-size: 30px;
@@ -349,24 +350,24 @@ font-size: 30px;
 }
 
 .btn.btn-primara{
-font-size: 25px;
+font-size: 30px;
 position: relative;
-top: 0px;
+top: -8px;
   
 }
 .up-pink{
-top: -120px;
-right: -180px;
+top: -80px;
+right: -80px;
 position: absolute;
-height: 500px;
-width: 500px;
+height: 45%;
+width: 30%;
 }
 .bottom-left{
-bottom: -170px;
-left: -100px;
-position: absolute;
-height: 500px;	
-width: 500px;
+bottom: -50px;
+left: -80px;
+position: relative;
+height: 40%;	
+width: 30%;
     
 }
       
@@ -378,5 +379,258 @@ margin-top: 20px;
     
 .btn.btn-default{
 color: white;
+
+}
+@media screen and (max-width: 1200px){
+  body{
+    margin: 0;
+    padding: 0;
+    
+    
+    }
+    .bottom-left{
+    top: 1600px;
+    left: -60px;
+    position: absolute;
+    height: 700px;	
+    width: 900px;
+    }
+    .up-pink{
+    top: 0%;
+    left: 200%;
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    
+    }
+    
+    .button{
+    margin-left:1200px;
+    margin-top:10% ;
+    background-color: white;
+    color: black;
+    border: 2px solid hwb(310 20% 56%);
+    width: 180%;
+    height: 155px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 100px;
+        
+    }
+    .btn.btn-primara{
+
+      
+    }
+    .button-up{
+    margin-top: 100%;
+    margin-left:1200px;
+    background-color: white;
+    color: black;
+    border: 2px solid hwb(310 20% 56%);
+    width:180%;
+    height: 155px;
+    border-radius: 12px;
+    text-align: center;
+        
+    }
+    .btn.btn.primary{
+    font-size: 28px;
+    position: relative;
+    top: -2px;
+      
+    }
+    .btn.btn-primara{
+    font-size: 25px;
+    position: relative;
+    top: 0px;
+        
+    }
+
+}
+@media screen and (max-width: 998px) {
+  body{
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    
+    }
+    .bottom-left{
+    top: 1000px;
+    left: -60px;
+    position: absolute;
+    height: 400px;	
+    width: 400px;
+    }
+    .up-pink{
+    top: 0%;
+    left: 470%;
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    
+    }
+    
+    .button{
+    margin-left:220px;
+    margin-top:10% ;
+    background-color: white;
+    color: black;
+    border: 2px solid hwb(310 20% 56%);
+    width: 50%;
+    height: 55px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 30px;
+        
+    }
+    .button-up{
+    margin-top: 150%;
+    margin-left:220px;
+    background-color: white;
+    color: black;
+    border: 2px solid hwb(310 20% 56%);
+    width:80%;
+    height: 55px;
+    border-radius: 12px;
+    text-align: center;
+        
+    }
+    .btn.btn.primary{
+    font-size: 28px;
+    position: relative;
+    top: -2px;
+      
+    }
+    .btn.btn-primara{
+    font-size: 25px;
+    position: relative;
+    top: 0px;
+        
+    }
+}
+@media screen and (max-width:768px){
+
+  body{
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    
+    }
+    .bottom-left{
+    top: 1000px;
+    left: -60px;
+    position: absolute;
+    height: 400px;	
+    width: 400px;
+    }
+    .up-pink{
+    top: 0%;
+    left: 470px;
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    
+    }
+    
+    .button{
+    margin-left:220px;
+    margin-top:10% ;
+    background-color: white;
+    color: black;
+    border: 2px solid hwb(310 20% 56%);
+    width: 80%;
+    height: 55px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 30px;
+        
+    }
+    .button-up{
+    margin-top: 150%;
+    margin-left:220px;
+    background-color: white;
+    color: black;
+    border: 2px solid hwb(310 20% 56%);
+    width:80%;
+    height: 55px;
+    border-radius: 12px;
+    text-align: center;
+        
+    }
+    .btn.btn.primary{
+    font-size: 28px;
+    position: relative;
+    top: -2px;
+      
+    }
+    .btn.btn-primara{
+    font-size: 25px;
+    position: relative;
+    top: 0px;
+        
+    }
+}
+@media  screen and  (max-width : 576px) {
+html{
+margin: 10;
+padding: 0;
+/* position: fixed; */
+
+}
+.bottom-left{
+top: 680px;
+left: -20%;
+position: absolute;
+height: 250px;	
+width: 260px;
+margin-bottom: -100px;
+}
+.up-pink{
+top: -15%;
+left: 80%;
+position: absolute;
+height: 300px;
+width: 300px;
+
+}
+
+.button{
+margin-left:90px;
+
+margin-top:10% ;
+background-color: white;
+color: black;
+border: 2px solid hwb(310 20% 56%);
+width: 80%;
+height: 55px;
+border-radius: 12px;
+text-align: center;
+font-size: 30px;
+    
+}
+.button-up{
+margin-top: 140%;
+margin-left:90px;
+background-color: white;
+color: black;
+border: 2px solid hwb(310 20% 56%);
+width:80%;
+height: 55px;
+border-radius: 12px;
+text-align: center;
+    
+}
+.btn.btn.primary{
+font-size: 28px;
+position: relative;
+top: -2px;
+  
+}
+.btn.btn-primara{
+font-size: 25px;
+position: relative;
+top: 0px;
+    
+}
 
 }
