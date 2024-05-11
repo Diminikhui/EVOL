@@ -49,7 +49,7 @@ window.addEventListener('click', function (event) {
 												<div class="items__control" data-action="plus">+</div>
 											</div>
 
-											<div class="price__korina">
+											<div class="price">
 												<div class="price__currency_korina">${productInfo.price}</div>
 											</div>
 
