@@ -513,7 +513,7 @@ color: white;
   body{
     margin: 0;
     padding: 0;
-    position: fixed;
+    /* position: fixed; */
     
     }
     .bottom-left{
