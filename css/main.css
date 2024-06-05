@@ -22,7 +22,6 @@ img {
 
 } */
 
-/* тест */
 
 
 
@@ -32,21 +31,6 @@ img {
 
 
 
-/* Фильтрация и товары на мобильных устройствах */
-@media (max-width: 576px) {
-	.row {
-		display: flex;
-		flex-direction: column;
-	}
-	.filter-container {
-		order: 1;
-		width: 100%;
-	}
-	#products-container {
-		order: 2;
-		width: 100%;
-	}
-}
 
 
 
@@ -55,7 +39,8 @@ img {
 
 
 
-/* конец теста */
+
+
 .logo {
 	margin-left:175px ;
 	margin-top: 0;
@@ -1154,3 +1139,8 @@ margin-left: -100px;
 }
 
 
+}
+   .filter-container {
+	order: 1;
+	width: 100%;
+}
