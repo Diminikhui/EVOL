@@ -1,6 +1,8 @@
 body, html {
 	background-color: #F8F9F9;
 	height: 100%;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 h3, h4 {
@@ -21,6 +23,36 @@ img {
 	padding-bottom: 50px; 
 
 } */
+
+.container {
+	flex: 1;
+}
+
+.footer {
+	background-color: #f8f9fa;
+	padding: 10px 0;
+	box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+	width: 100%;
+}
+
+.footer .container {
+	max-height: 50vh;
+	overflow-y: auto;
+}
+
+@media (max-height: 600px) {
+	.footer .container {
+		max-height: 40vh;
+	}
+}
+
+.fixed-bottom {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 1030;
+}
+
 
 .logo {
 	margin-left:175px ;
