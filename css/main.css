@@ -40,6 +40,15 @@ font-size: medium;
 
 }
 
+.wrapper {
+  display: table;
+  height: 100%;
+}
+.content {
+  display: table-row;
+  height: 100%;
+}
+
 /* @media (max-width: 980px){
 	.site-title  {
 		font-size:2rem;

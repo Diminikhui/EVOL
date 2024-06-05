@@ -8,8 +8,42 @@
 	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700&amp;subset=cyrillic-ext" rel="stylesheet">
-	
-	
+	<style>
+		.fixed-cart {
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			max-width: 400px;
+			z-index: 1050; /* Повышаем z-index для отображения поверх других элементов */
+			background-color: white;
+			border-top: 1px solid #dee2e6;
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+			padding: 15px;
+		}
+
+		@media (max-width: 576px) {
+			.fixed-cart {
+				width: 100%;
+				max-width: 100%;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				border-radius: 0;
+			}
+		}
+
+		.footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background-color: #f8f9fa;
+			padding: 15px;
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+			z-index: 1050; /* Повышаем z-index для отображения поверх других элементов */
+		}
+	</style>
 </head>
 
 <body>
@@ -17,114 +51,67 @@
 	<header class="header">
 		<div class="container text-center">
 			<a href="EVOL0.4.html">
-			<img class="logo" src="Лого2.0.svg" width="200" alt="лого компании" >
+				<img class="logo" src="Лого2.0.svg" width="200" alt="лого компании">
 			</a>
 			<div class="site-title">Доставка лакокрасочных покрытий</div>
 			<p class="lead">Оперативно и качественно</p>
 		</div>
 	</header>
-<!-- ПОИСК -->
-<section>
-	<div class="d-flex" role="search">
-		<input id="searchInput" class="form-control me-2" type="search" placeholder="Поиск" aria-label="Search">
-		<button id="searchButton" class="btn btn-outline-success" type="submit">Поиск</button>
-	</div>
-</section>
+	<!-- ПОИСК -->
+	<section>
+		<div class="d-flex" role="search">
+			<input id="searchInput" class="form-control me-2" type="search" placeholder="Поиск" aria-label="Search">
+			<button id="searchButton" class="btn btn-outline-success" type="submit">Поиск</button>
+		</div>
+	</section>
 
-<div id="searchResults"></div>
-
+	<div id="searchResults"></div>
 
 	<!-- КОНЕЦ ПОИСКА -->
 	<div class="container mb-5">
 		<div class="row">
-
-
 			<!-- Товары -->
-		
-				
 			<div class="col-sm-8">
-				
-				  
 				<div class="row" id="products-container">
-
+					<!-- Продукты будут загружены здесь -->
 				</div>
 			</div>
-
-			<!-- Корзина -->
-			
-				
-			<div class="col-sm-4">
-
-				<!-- Корзина -->
-				<div class="card mb-4">
-					<div class="card-body-korzina korzina">
-						<h5 class="card-title">Ваш заказ</h4>
-
-							<div data-cart-empty class="alert alert-secondary" role="alert">
-							Корзина пуста
-						</div>
-
-						<!-- cart-wrapper -->
-						<div class="cart-wrapper">
-
-						</div>
-						<!-- // cart-wrapper -->
-
-						<!-- Стоимость заказа -->
-						<div class="cart-total">
-							<p data-cart-delivery class="none">
-								<span class="h5">Доставка:</span>
-								<span class="delivery-cost">500 ₽</span><br>
-								<span class="small">Бесплатно при заказе от 5000 ₽</span>
-							</p>
-							<p class="itogo"><span class="itog">Итого:</span>
-								<span class="total-price">0</span>
-								<span class="rouble">₽</span></p>
-						</div>
-						<!-- // Стоимость заказа -->
-
-					</div>
-
-					<!-- Оформить заказ -->
-					<div id="order-form" class="card-body-korzina border-top none">
-						<h5 class="card-title2">Оформить заказ</h4>
-						<form>
-							
-							<button type="submit" class="btn btn-primary">Заказать</button>
-						</form>
-					</div>
-					<!-- // Оформить заказ -->
-
-				</div>
-				<!-- // Корзина -->
-			</div>
-			
-
 		</div>
 	</div>
-  
-
-
-
-
 
 	<!-- Подключаем скрипты -->
 	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const cart = document.getElementById('cart');
+			const cartPlaceholder = document.createElement('div');
+			cartPlaceholder.style.width = cart.offsetWidth + 'px';
+			cartPlaceholder.style.height = cart.offsetHeight + 'px';
+			cart.parentNode.insertBefore(cartPlaceholder, cart.nextSibling);
+
+			window.addEventListener('scroll', () => {
+				if (window.scrollY > cartPlaceholder.offsetTop) {
+					cart.classList.add('fixed-cart');
+				} else {
+					cart.classList.remove('fixed-cart');
+				}
+			});
+		});
+
 		function loadProducts(callback) {
 			fetch('./js/products.json')
 				.then(response => response.json())
 				.then(data => callback(data))
 				.catch(error => console.error('Ошибка загрузки файла JSON:', error));
 		}
-	
+
 		function searchProducts(keyword) {
-			loadProducts(function(products) {
+			loadProducts(function (products) {
 				const results = products.filter(product => product.title.toLowerCase().includes(keyword.toLowerCase()));
-	
+
 				if (results.length > 0) {
 					const searchResultsDiv = document.getElementById('searchResults');
 					searchResultsDiv.innerHTML = ''; // Очистим предыдущие результаты
-	
+
 					results.forEach(result => {
 						const link = document.createElement('a');
 						link.href = result.link; // Предположим, что у продукта есть свойство link
@@ -132,14 +119,14 @@
 						link.classList.add('result-link');
 						searchResultsDiv.appendChild(link);
 					});
-	
+
 				} else {
 					console.log('Товар не найден.');
 				}
 			});
 		}
-	
-		document.getElementById('searchButton').addEventListener('click', function() {
+
+		document.getElementById('searchButton').addEventListener('click', function () {
 			const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
 			if (keyword !== '') {
 				searchProducts(keyword);
@@ -149,11 +136,52 @@
 		});
 	</script>
 
-<!-- <script src="./js/search.js"></script> -->
 	<script src="./js/renderProducts.js"></script>
 	<script src="./js/calcCartPrice.js"></script>
 	<script src="./js/toggleCartStatus.js"></script>
 	<script src="./js/counter-02.js"></script>
 	<script src="./js/cart-02.js"></script>
+
+	<footer class="footer">
+		<!-- Корзина -->
+		<div class="card mb-4" id="cart">
+			<div class="card-body-korzina korzina">
+				<h5 class="card-title">Ваш заказ</h5>
+				<div data-cart-empty class="alert alert-secondary" role="alert">
+					Корзина пуста
+				</div>
+
+				<!-- cart-wrapper -->
+				<div class="cart-wrapper">
+					<!-- Товары в корзине -->
+				</div>
+				<!-- // cart-wrapper -->
+
+				<!-- Стоимость заказа -->
+				<div class="cart-total">
+					<p data-cart-delivery class="none">
+						<span class="h5">Доставка:</span>
+						<span class="delivery-cost">500 ₽</span><br>
+						<span class="small">Бесплатно при заказе от 5000 ₽</span>
+					</p>
+					<p class="itogo"><span class="itog">Итого:</span>
+						<span class="total-price">0</span>
+						<span class="rouble">₽</span></p>
+				</div>
+				<!-- // Стоимость заказа -->
+			</div>
+
+			<!-- Оформить заказ -->
+			<div id="order-form" class="card-body-korzina border-top none">
+				<h5 class="card-title2">Оформить заказ</h5>
+				<form>
+					<button type="submit" class="btn btn-primary">Заказать</button>
+				</form>
+			</div>
+			<!-- // Оформить заказ -->
+		</div>
+		<!-- // Корзина -->
+	</footer>
 </body>
+
 </html>
