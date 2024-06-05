@@ -7,6 +7,11 @@
 	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700&amp;subset=cyrillic-ext" rel="stylesheet">
+	<style>
+		.filter-container .btn {
+			width: 100%;
+		}
+	</style>
 </head>
 <body>
 
@@ -24,10 +29,21 @@
 
 	<div class="container mb-5">
 		<div class="row">
-			<!-- Товары -->
-			<div class="col-sm-12">
-				<div class="row" id="products-container">
+			<!-- Фильтрация -->
+			<div class="col-sm-2 filter-container">
+				<div class="filter-buttons">
+					<button class="btn btn-primary mb-2" data-filter="1">1</button>
+					<button class="btn btn-primary mb-2" data-filter="2">2</button>
+					<button class="btn btn-primary mb-2" data-filter="3">3</button>
+					<button class="btn btn-primary mb-2" data-filter="4">4</button>
+					<button class="btn btn-primary mb-2" data-filter="5">5</button>
+					<button class="btn btn-primary mb-2" data-filter="6">6</button>
 				</div>
+			</div>
+
+			<!-- Товары -->
+			<div class="col-sm-10">
+				<div class="row" id="products-container"></div>
 			</div>
 		</div>
 	</div>
@@ -84,5 +100,6 @@
 	<script src="./js/toggleCartStatus.js"></script>
 	<script src="./js/counter-02.js"></script>
 	<script src="./js/cart-02.js"></script>
+	<script src="./js/filterProducts.js"></script>
 </body>
 </html>
