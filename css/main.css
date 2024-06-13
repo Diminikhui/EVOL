@@ -148,7 +148,7 @@ display: flex;
 	text-align: center;
 	font-size: 120%;
 	position: relative;
-	bottom: 6.5px;
+	bottom: 9px;
 }
 
 .items__control:hover {
@@ -157,11 +157,11 @@ display: flex;
 }
 
 .items__current {
-	width: 50%;
-	height: 80%;
-	font-size:100% ;
+	width: 80%;
+	height: 150%;
+	font-size:90% ;
 	position: relative;
-	bottom: 4.5px;
+	bottom: 5px;
 }
 
 /* items--small */
@@ -182,6 +182,9 @@ display: flex;
 
 .price {
 	text-align: left;
+	position: relative;
+	width: 100px;
+	left: 20px;
 
 }
 
@@ -190,15 +193,15 @@ display: flex;
 	font-size: 70%;
 	line-height: 1;
 	position: relative;
-	right: -2px;
-	bottom: 10px;
+	left: 12px;
+	bottom: 24px;
 }
 
 .price__currency {
 	font-size: 123%;
 	position: relative;
-	right: 49px;
-	top: 7px;
+	right:42px;
+	bottom: 7px;
 }
 
 ._korzina {
@@ -253,8 +256,9 @@ display: flex;
 	font-size: 100%;
     line-height: 1.2;
 	font-weight: 600;
-	margin-bottom: 5px;
-	margin-left:45%;
+	position: relative;
+	left: 48px;
+	bottom: 5px;
 }
 
 .cart-item__weight {
@@ -269,12 +273,18 @@ display: flex;
 }
 
 .items.items--small.counter-wrapper{
-margin-top: -10%;
+position: relative;
+top: 38px;
+left: 19px;
+width: 50px;
+height: 12px;
 }
+
+
 .cart-item__details {
-	display: flex;
-	
-	margin-left:13%  ;
+	position: relative;
+	left: 51px;
+	bottom: 17px;
 
 }
 
@@ -343,15 +353,17 @@ transform: translateY(5px);
 margin-left: 11px;
 margin-bottom: 13px; 
 position: relative;
-height: 180px;
+height: 190px;
 width: 100%;
 text-align: center;
 right: 10px;
+bottom: 5px;
 
 }
 .card-body-korzina.border-top{
 height: 150%;
-width: 80%;
+width: 100%;
+margin-top: 10px;
 
 }
 .h5{
@@ -385,10 +397,12 @@ z-index: 9999;
 
 
 .items.counter-wrapper{
-	width: 48px;
-	height:13px;
-	margin-left: -18px;
-	margin-top: -50px;
+	width: 44px;
+	height:12px;
+	position: relative;
+	bottom: 13px;
+	right: 17px;
+
 	
 }
  
@@ -398,9 +412,9 @@ z-index: 9999;
 	font-size: 70%;
 	line-height: 70%;
 	position: relative;
-	bottom: 30px;
-	left:63px;
-	color: 844889;
+	bottom: 45px;
+	left:60px;
+
 	background-color: white;
 	text-align: center;
 	z-index: 9999;
@@ -415,6 +429,12 @@ z-index: 9999;
 .footer.fixed-bottom{
 	z-index: 9999;
 	height: 200px;
+}
+.img-corina{
+position: relative;
+left: 10px;
+bottom: 5px;
+
 }
 /* медиа запросы */
 @media  screen and  (max-width : 998px){
