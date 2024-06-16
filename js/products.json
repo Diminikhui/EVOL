@@ -2,7 +2,7 @@
 	{
 		"id": 1,
 		"title": "товар 1",
-		"itemsInBox": "краткое описание товара",
+		"itemsInBox": "краткое описание ",
 		"weight": 11,
 		"price": 1000,
 		"imgSrc": "краска.jpg",
@@ -12,7 +12,7 @@
 	{
 		"id": 2,
 		"title": "краска",
-		"itemsInBox": "краткое описание товара",
+		"itemsInBox": "краткое описание ",
 		"weight": 11,
 		"price": 1500,
 		"imgSrc": "краска.jpg",
@@ -22,7 +22,7 @@
 	{
 		"id": 3,
 		"title": "товар 3",
-		"itemsInBox": "краткое описание товара",
+		"itemsInBox": "краткое описание ",
 		"weight": 11,
 		"price": 2000,
 		"imgSrc": "краска.jpg",
@@ -32,7 +32,7 @@
 	{
 		"id": 4,
 		"title": "товар 4",
-		"itemsInBox": "краткое описание товара",
+		"itemsInBox": "краткое описание ",
 		"weight": 11,
 		"price": 2500,
 		"imgSrc": "краска.jpg",
@@ -42,7 +42,7 @@
 	{
 		"id": 5,
 		"title": "товар 5",
-		"itemsInBox": "краткое описание товара",
+		"itemsInBox": "краткое описание ",
 		"weight": 11,
 		"price": 3000,
 		"imgSrc": "краска.jpg",
@@ -52,7 +52,7 @@
 	{
 		"id": 6,
 		"title": "товар 6",
-		"itemsInBox": "краткое описание товара",
+		"itemsInBox": "краткое описание ",
 		"weight": 11,
 		"price": 3500,
 		"imgSrc": "краска.jpg",

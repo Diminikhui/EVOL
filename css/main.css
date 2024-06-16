@@ -941,9 +941,9 @@ width: 800px;
 
 @media  screen and  (max-width : 576px) {
 	body{
-	width:100%;
 	height: 100%;
-
+	width: 100%;
+	
 	}
 	.card.mb-4.tovar{
 		box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
@@ -951,30 +951,29 @@ width: 800px;
 		transform: translateY(5px);
 		margin-bottom: 5px;
 		position: relative;
-		height: 270px;
-		width: 180px;	
+		height: 240px;
+		width: 155px;	
 		;	
 }
 .card-body.text-center{
 		box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
-		width: 88%;
-		height: 40%;
+		width: 90%;
+		height: 35%;
 		border-radius: 20px;
 		transform: translateY(5px);
-		margin-left: 11px;
-		margin-right: 5px;
-		margin-bottom: 7%;
+		position: relative;
+		right: 1px;
 		margin-top: 2%; 
 		
 }	
 .btn.btn-block.btn-outline-warning{
 height: 39%;
-width: 75%;
-font-size: 80%;
+width: 77%;
+font-size: 60%;
 line-height: 70%;
 position: relative;
-top:5px;
-left: -15px;
+bottom:16px;
+left:-30px;
 color: 844889;
 background-color: white;
 text-align: center;
@@ -983,23 +982,23 @@ text-align: center;
 }
 .item-title {
 
-	font-size:110%;
+	font-size:105%;
 	min-height: auto;
-	margin-top: -10%;
+	margin-top: -13%;
 	margin-bottom: -5%;
 }
 .items.counter-wrapper{
-	width: 55px;
-	height:14px;
+	width: 47px;
+	height:11px;
 	position: relative;
 	left: -1px;
-	top: 33px;
+	top: 23px;
 		
 	}
 .items__control{
-font-size:18px;
+font-size:17px;
 position: relative;
-top: -2px;
+top: -1px;
 
 }
 .items__current{
@@ -1010,18 +1009,18 @@ top:0px;
 }
 .price__weight {
 	color: #6c757d!important;
-	font-size: 70%;
+	font-size: 65%;
 	line-height: 1;
 	position: relative;
-	left: 100px;
-	top: 2px;
+	left: 95px;
+	bottom: 8px;
 	
 }
 .price__currency {
-	font-size: 140%;
+	font-size: 120%;
 	position: relative;
 	left: 80px;
-	top: -10px;
+	top: -25px;
 }
 
 .price__korina {
@@ -1031,30 +1030,31 @@ top:0px;
 }
 
 .col-md-6{
-	margin-right:30px;
+	margin-right:20px;
 	width: 130px; ;
-	margin-left:50px;
-	margin-bottom:-15px ;
+	margin-left:17px;
+	margin-bottom:-40px ;
 	padding: 1em;
 	position: relative;
-	left: 45px;
+	left: 48px;
 }
 .text-muted{
 
 	font-size: 70%;
     letter-spacing: -1.2px;
-	margin-top: -80%;
+	position: relative;
+	bottom: 5px;
 	
 }
 .card.mb-4{
-box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
+border-color: white;
 border-radius: 15px;
-transform: translateY(5px);
-height:95%;
-width: 103%;
-position: relative;
-left: 10px;
-bottom: 6px;
+/* transform: translateY(5px); */
+height:250px;
+width: 390px;
+position: fixed;
+left: 20px;
+bottom:-20px;
 }
 .product-img {
 	width: 60%;
@@ -1080,12 +1080,17 @@ font-size: 25px;
 	bottom: 100px;
 	width: 100px;
 }
+.a{
+height: 150px;
 
+}
 .logo{
 position: relative;
 right: 150px;
+bottom: 20px;
 margin-bottom: 0%;
-width: 120px;
+width: 110px;
+
 }
 .site-title{
 font-size: 150%;
@@ -1117,10 +1122,10 @@ width: 80px;
 }
 .items.items--small.counter-wrapper{
 position: relative;
-left:-10px ;
-top: -115px;
-width: 60px;
-height: 15px;
+left:-63px;
+top: -120px;
+width: 57px;
+height: 13px;
 
 }
 .card-body-korzina.korzina{
@@ -1183,26 +1188,32 @@ width: 80%;
 display:inline-flex;
 overflow: auto;
 position: relative;
-left: 0%;
+left: 0;
 }
 .card-body-korzina.border-top{
-	height: 20%;
-	width: 100%;
-	margin-top: 20px;
+height: 20%;
+width: 100%;
+margin-top: 20px;
 	}
 form{
-	width: 100%;
-	height: 50%;
-	margin-top: -20px;
-	margin-bottom: 80px;
+width: 100%;
+height: 50%;
+margin-top: -20px;
+margin-bottom: 80px;
 }
 .cart-item__details{
 margin-left: -20px;
-	margin-top: -30px;
+margin-top: -30px;
 }
 .row{
-width: 500px;
+width: 400px;
 margin-left: auto;
+position: relative;
+bottom: -45px;
+overflow:auto;
+overflow-x: hidden;
+left: -25px;
+
 }
 .col-sm-4{
 position: relative;
@@ -1213,8 +1224,8 @@ width:81%;
 }
 .price__currency_korina{
 position: relative;
-bottom: 90px;
-left: -13px;
+bottom: 130px;
+left: 95px;
 font-size: 17px;
 }
 .small{
@@ -1225,19 +1236,21 @@ right: 90px;
 .col-sm-2.filter-container{
 	width: 100px;
 	position: fixed;
-	bottom: 500px;
-	left: -160px;
-	z-index: 9999;
+	bottom: 330px;
+	left: -170px;
+	background-color: white;
+
 	}
 	.btn.btn-primary.mb-2{
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 	margin-top:0px;
 	margin-right: 5px;
 	border-radius: 15px;
 	background-color: #FFF;
 	color: black;
 	border-color: #844889;
+	position: relative;
 	
 	}
 	.col-sm-12{
@@ -1248,13 +1261,43 @@ right: 90px;
 	height: 50px;
 	position: relative;
 	bottom: 20px;
+	left: 0px;
 	}
+	
+	
 	.footer.fixed-bottom{
-	width: 530px;
-	height:300px ;
+	width:390px ;
+	height: 200px;
+	position: fixed;
+	left: 0;
+	bottom: -20px;
+	margin-bottom: -130px;
+	overflow: hidden;
+	}
+	a{
+	z-index: 9999;
+	position:fixed;
+	left: 0;
+	}
+	.acount{
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	right:5px;
+	top: 10px;
+	border-radius: 30px;
+	background-color: white;
+	border-color:#844889 ;
 
 	}
+	.people{
+	position:fixed;
+	width: 30px;
+	height: 30px;
+	top: -1px;
+	right: 15px;
 	
-	
+
+	}
 }
 
