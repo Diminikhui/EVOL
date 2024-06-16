@@ -14,13 +14,9 @@
 		.footer {
 			background-color: transparent;
 		}
-		.card {
-			background-color: transparent;
-		}
 	</style>
 </head>
 <body>
-
 	<header class="header">
 		<div class="container text-center">
 			<a href="EVOL0.4.html">
@@ -31,11 +27,46 @@
 		</div>
 	</header>
 
+	<!-- Account Section -->
+	<div class="container mt-5">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<h3>Регистрация</h3>
+				<form id="register-form">
+					<div class="form-group">
+						<label for="register-email">Email</label>
+						<input type="email" class="form-control" id="register-email" required>
+					</div>
+					<div class="form-group">
+						<label for="register-password">Пароль</label>
+						<input type="password" class="form-control" id="register-password" required>
+					</div>
+					<button type="submit" class="btn btn-primary">Регистрация</button>
+				</form>
+			</div>
+			<div class="col-md-6">
+				<h3>Авторизация</h3>
+				<form id="login-form">
+					<div class="form-group">
+						<label for="login-email">Email</label>
+						<input type="email" class="form-control" id="login-email" required>
+					</div>
+					<div class="form-group">
+						<label for="login-password">Пароль</label>
+						<input type="password" class="form-control" id="login-password" required>
+					</div>
+					<button type="submit" class="btn btn-primary">Войти</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Search Results -->
 	<div id="searchResults"></div>
 
+	<!-- Products Section -->
 	<div class="container mb-5">
 		<div class="row">
-			<!-- Фильтрация -->
 			<div class="col-sm-2 filter-container">
 				<div class="filter-buttons">
 					<button class="btn btn-primary mb-2" data-filter="1">1</button>
@@ -46,8 +77,6 @@
 					<button class="btn btn-primary mb-2" data-filter="6">6</button>
 				</div>
 			</div>
-
-			<!-- Товары -->
 			<div class="col-sm-10">
 				<div class="row" id="products-container"></div>
 			</div>
@@ -59,19 +88,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<!-- Корзина -->
 					<div class="card mb-4">
 						<div class="card-body-korzina korzina">
 							<h5 class="card-title">Ваш заказ</h5>
 							<div data-cart-empty class="alert alert-secondary" role="alert">
 								Корзина пуста
 							</div>
-
-							<!-- cart-wrapper -->
 							<div class="cart-wrapper"></div>
-							<!-- // cart-wrapper -->
-
-							<!-- Стоимость заказа -->
 							<div class="cart-total">
 								<p data-cart-delivery class="none">
 									<span class="h5">Доставка:</span>
@@ -82,19 +105,14 @@
 									<span class="total-price">0</span>
 									<span class="rouble">₽</span></p>
 							</div>
-							<!-- // Стоимость заказа -->
 						</div>
-
-						<!-- Оформить заказ -->
 						<div id="order-form" class="card-body-korzina border-top none">
 							<h5 class="card-title2">Оформить заказ</h5>
-							<form>
+							<form id="order-form-element">
 								<button type="submit" class="btn btn-primary">Заказать</button>
 							</form>
 						</div>
-						<!-- // Оформить заказ -->
 					</div>
-					<!-- // Корзина -->
 				</div>
 			</div>
 		</div>
@@ -107,5 +125,6 @@
 	<script src="./js/counter-02.js"></script>
 	<script src="./js/cart-02.js"></script>
 	<script src="./js/filterProducts.js"></script>
+	<script src="./js/account.js"></script>
 </body>
 </html>
