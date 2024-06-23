@@ -71,21 +71,22 @@ z-index: 9999;
 
 
 .col-sm-10{
-min-width: 600px;
-height: 600px;
+min-width: 200px;
+width: 400px;
+height: 500px;
 position: relative;
-top: 50px;
+top: 0px;
 left: 0;
 right: 0;
-bottom: 0;
+bottom: 0px;
 margin: 0 auto;
-padding-left: 300px;
-padding-right: 300px;
-overflow: auto;
+/* padding-left: 300px;
+padding-right: 300px; */
+overflow: scroll;
 }
 .row.products{
-width: 1000px;	
-left: 0;
+width:900px;	
+left: 0px;
 right: 0;
 bottom: 0;
 margin: 0 auto;
@@ -125,7 +126,7 @@ min-width: 50px;
 margin-bottom:5px ;
 margin-right: -250px;
 position: relative;
-left: 0px;
+left: 30px;
 }
 .card.mb-4.tovar{
 box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
@@ -144,6 +145,10 @@ display: inline-flex;
 position: relative;
 right: 0px;
 width: 70vw;
+}
+.cart-item{
+width: 200px;
+height: 130px;
 }
 img {
 	max-width: 100%;
@@ -287,6 +292,7 @@ display: flex;
 	position: relative;
 	width: 100px;
 	left: 20px;
+	bottom: 5px;
 
 }
 
@@ -294,9 +300,10 @@ display: flex;
 	color: #6c757d!important;
 	font-size: 70%;
 	line-height: 1;
-	position: relative;
-	left: 12px;
-	bottom: 24px;
+	position: absolute;
+	margin-left: 5px;
+	margin-top: -0px;
+	
 }
 
 .price__currency {
@@ -1105,6 +1112,9 @@ right: 51px;
 		min-width: 100%;
 		margin-bottom: 20px;
 		display: block;
+		top: 0;
+		right: 0;
+		left: 0;
 		}
 		
 		.logo {
@@ -1113,13 +1123,13 @@ right: 51px;
 		right: 0;
 		margin: 0 auto;
 		position: relative;
-		width: 20%;
+		width: 25%;
 		min-width: 28%;
 
 		}
 		.acount{
 		position: absolute;
-		right: 1%;
+		right: -1%;
 		top: 5%;
 		width:50px ;
 		height: 100%;
@@ -1174,7 +1184,7 @@ right: 51px;
 		height: 600px;
 		width: 340px;
 		position: relative;
-		top: 40px;
+		top: 0px;
 		left: 40px;
 		right: 0;
 		bottom: 0;
@@ -1247,7 +1257,12 @@ right: 51px;
 		display: inline-flex;
 		position: relative;
 		right: 0px;
-		width: 10vw;
+		width: 100vw;
+		}
+		.cart-item{
+		width: 210px;
+		min-width: 220px;
+		height: 100px;
 		}
 		.card-body.text-center{
 			box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
@@ -1324,10 +1339,10 @@ right: 51px;
 		display: flex;	
 		}
 		.text-muted{
-		
-			font-size: 60%;
-			letter-spacing: -1px;
-			margin-top: -80%;
+		font-size: 60%;
+		letter-spacing: -1px;
+		position: relative;
+		bottom: 10px;
 		}
 		
 		
@@ -1444,6 +1459,10 @@ right: 51px;
 			width:100%;
 		
 		}
+		.c{
+			height: 110px;
+
+		}
 		.cart-item__top {
 			display: flex;
 			align-items: flex-start;
@@ -1490,7 +1509,7 @@ right: 51px;
 		.items.items--small.counter-wrapper{
 		position: relative;
 		top: 40px;
-		right: 32px;
+		right: 34px;
 		width: 50px;
 		height: 12px;
 		}
@@ -1578,10 +1597,10 @@ right: 51px;
 		
 		
 		.items.counter-wrapper{
-			width: 44px;
+			width: 50px;
 			height:10px;
 			position: relative;
-			bottom: 13px;
+			bottom: 23px;
 			right: 17px;
 		
 			
@@ -1625,7 +1644,7 @@ right: 51px;
 		}
 		.price__currency_korina{
 		position: relative;
-		top: 1px;
+		top: 5px;
 		right: 51px;
 		}
 
