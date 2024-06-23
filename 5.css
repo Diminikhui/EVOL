@@ -287,22 +287,109 @@ margin-top: 20px;
 
 
 
-@media screen and (max-width: 998px) {
+@media screen and (max-width: 760px) {
   
+
+body{
+position: absolute;
+width: 100%;
+height: 100%;
 }
 
-@media screen and (max-width: 998px) {
-  
+.form-container.f-top{
+margin-top: 0;
+position: relative;
+top: -30px;
+width: 100%;
+min-width: 100%;
+height: 200px;
 }
-
-
-
-@media screen and (max-width:768px){
-  
+.form-container.f-middle{
+position: relative;
+height: 100px;
+width: 100%;
+min-width: 100%;
+margin-top: 40px;
 }
+.form-container.f-low{
+position: relative;
+width: 100%;
+height: 380px;
+min-width: 100%;
+margin-top: 40px;
 
 
+}
+.title.f-low{
+position: static;
+top: 0px;
 
-@media  screen and  (max-width : 576px) {
-  
+}
+.scroll.products{
+position: relative;
+width: 120%;
+left: -30px;
+overflow-x: auto;
+}
+.zakaz-past.f{
+height: 200px;
+display: flex;
+
+}
+.product-img{
+width: 100%;
+left: -10px;
+border-radius: 10px;
+}
+.card.mb-4.tovar{
+width: 130px;
+height: 200px;
+margin-right: 20px;
+min-height: 130px;
+border-radius: 10px;
+}
+.card-body.text-center{
+position: absolute;
+}
+.item-title{
+  position: relative;
+  font-size: 130%;
+  left: -10px;
+  top:95px;
+
+}
+.text-muted{
+  font-size: 1%;
+  opacity: 0%;
+  left: 100px;
+  position: relative;
+}
+.items.counter-wrapper{
+width:1%;
+opacity: 0%;
+}
+.items__control{
+width: 1%;
+opacity: 0%;
+}
+.price{
+position: relative;
+left: -10px;
+font-size: 120%;
+bottom: 5px;
+}
+.price__weight{
+  font-size: 1%;
+  opacity: 0;
+}
+.btn.btn-block.btn-outline-warning{
+font-size: 15px;
+width: 120px;
+height: 40px;
+position: relative;
+left: -12px;
+bottom: 7px;
+color:  #844889;
+border-color:  #844889;
+}
 }
