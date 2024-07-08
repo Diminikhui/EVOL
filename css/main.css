@@ -1118,7 +1118,7 @@ right: 51px;
 		background-color: #F8F9F9;
 		height: 100%;
 		width: 100%;
-
+		over
 		}
 		.header{
 		width: 100%;
@@ -1198,7 +1198,7 @@ right: 51px;
 		background-color: #FFF;
 		color: black;
 		border-color: #844889;
-		z-index: 9999;
+		z-index: 2;
 		}
 		
 		
@@ -1215,7 +1215,10 @@ right: 51px;
 		margin: 10px auto;
 		padding: 0;
 		overflow: auto;
-		margin-left:50px ;
+			margin-left:50px ;
+			transform: translate(10px, 0%);
+
+			z-index: 2;
 		
 		}
 		.row.products{
