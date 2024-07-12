@@ -13,7 +13,7 @@ display: block;
 }
 
 .logo {
-top: 0;
+top: 10px;
 left: 0;
 right: 0;
 margin: 0 auto;
@@ -23,8 +23,8 @@ min-width: 10%;
 }
 .acount{
 position: absolute;
-right: 2%;
-top: 20%;
+right: 1%;
+top: 10%;
 width:20px ;
 height: 65%;
 min-width: 65px;
@@ -75,7 +75,7 @@ min-width: 200px;
 width: 400px;
 height: 500px;
 position: relative;
-top: 0px;
+top: -20px;
 left: 0;
 right: 0;
 bottom: 0px;
@@ -145,10 +145,13 @@ display: inline-flex;
 position: relative;
 right: 0px;
 width: 70vw;
+bottom: 10px;
 }
 .cart-item{
+position: relative;
+bottom: 0px;
 width: 200px;
-height: 130px;
+height: 100px;
 }
 img {
 	max-width: 100%;
@@ -248,14 +251,14 @@ display: flex;
 }
 
 .items__control {
-	width: 50%;
-	height: 200%;
+	width: 100%;
+	height: 210%;
 	cursor: pointer;
 	transition: 0.2s ease-in;
 	text-align: center;
-	font-size: 120%;
+	font-size: 130%;
 	position: relative;
-	bottom: 9px;
+	bottom:7px;
 }
 
 .items__control:hover {
@@ -266,7 +269,7 @@ display: flex;
 .items__current {
 	width: 80%;
 	height: 150%;
-	font-size:90% ;
+	font-size:110% ;
 	position: relative;
 	bottom: 5px;
 }
@@ -298,19 +301,21 @@ display: flex;
 
 .price__weight {
 	color: #6c757d!important;
-	font-size: 70%;
+	font-size: 80%;
 	line-height: 1;
 	position: absolute;
 	margin-left: 5px;
 	margin-top: -0px;
+	bottom: 40px;
+	left: 20px;
 	
 }
 
 .price__currency {
-	font-size: 123%;
+	font-size: 130%;
 	position: relative;
-	right:42px;
-	bottom: 7px;
+	right:38px;
+	top: 0px;
 }
 
 ._korzina {
@@ -355,9 +360,8 @@ display: flex;
 }
 
 .cart-item__desc {
-	padding-top: 15px;
-	padding-left: 15px;
-	max-width: 208px;
+position: relative;
+top: 10px;
 }
 
 .cart-item__title {
@@ -495,8 +499,8 @@ margin-bottom: 0%;
 
 
 .items.counter-wrapper{
-	width: 44px;
-	height:10px;
+	width: 65%;
+	height: 16px;
 	position: relative;
 	bottom: 13px;
 	right: 17px;
@@ -506,11 +510,13 @@ margin-bottom: 0%;
  
 .btn.btn-block.btn-outline-warning{
 	height: 40%;
+	min-height: 10%;
+	min-width: 10%;
 	width: 79%;
 	font-size: 70%;
 	line-height: 70%;
 	position: relative;
-	bottom: 45px;
+	bottom: 40px;
 	left:60px;
 
 	background-color: white;
@@ -543,15 +549,22 @@ width: 200px;
 }
 .price__currency_korina{
 position: relative;
-top: 1px;
+top: 4px;
 right: 51px;
 }.btn.btn-primary{
-
+color: white;
+background-color:#8d1eeb;
 
 }
+
 .low-button{
 
 		
+}
+.card-title2{
+opacity: 0;
+font-size: 1%;
+
 }
 /* медиа запросы */
 
@@ -1118,7 +1131,7 @@ right: 51px;
 		background-color: #F8F9F9;
 		height: 100%;
 		width: 100%;
-		over
+		
 		}
 		.header{
 		width: 100%;
@@ -1209,7 +1222,7 @@ right: 51px;
 		width: 100%;
 		position: relative;
 		top: 0px;
-		left: 40px;
+		left: 25px;
 		right: 0;
 		bottom: 0;
 		margin: 10px auto;
@@ -1224,7 +1237,7 @@ right: 51px;
 		.row.products{
 		width: 100%;	
 		height:100% ;
-		left:230px;
+		left:250px;
 		right: 0;
 		bottom: 0;
 		margin: 0 auto;
@@ -1266,24 +1279,29 @@ right: 51px;
 		
 		}
 		.col-md-6{
-		width: 200px;
-		height: 350px;
-		margin-bottom:-20px ;
+		width: 55%;
+		height: 45%;
+		margin-bottom:60px ;
+		margin-right: -245px;
 		position: relative;
 		margin-left: 220px;
-		left: -300px;
+		left: -260px;
 		display: block;
-		margin-top: -45px;
-		top: 45px;
+		margin-top: -50px;
+		top: 40px;
+		min-width: 10%;
 		}
 		.card.mb-4.tovar{
 		box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
 		border-radius: 15px;
 		transform: translateY(5px);
 		position: relative;
-		height: 80%;
+		left: 20px;
+		height:100%;
 		width: 100%;
-		margin-right: -30px;
+		min-height: 10%;
+		min-width: 10%;
+		margin-left: 10px;
 		z-index: 9999;
 		background-color: white;
 		}
@@ -1293,6 +1311,7 @@ right: 51px;
 		position: relative;
 		right: 0px;
 		width: 120vw;
+		top: 5px;
 		}
 		.cart-item{
 		width: 220px;
@@ -1303,12 +1322,14 @@ right: 51px;
 		.card-body.text-center{
 			box-shadow:  inset 2px -2px 8px rgba(129, 73, 152, 0.442);
 			width: 88%;
+			min-width: 10%;
 			height: 40%;
+			min-height: 10%;
 			border-radius: 20px;
 			transform: translateY(5px);
 			position: relative;
 			bottom: 0px;
-			left: 2px;
+			left: 0px;
 			}
 		img {
 			max-width: 100%;
@@ -1357,17 +1378,18 @@ right: 51px;
 		
 		
 		.product-img {
-			width: 100px;
+			width: 70%;
+			min-width: 10%;
 			height: auto;
 			margin-left: auto;
 			margin-right: auto;
 			margin-top: 25px;
-			margin-bottom: 15px;
+			margin-bottom: 0px;
 		}
 		
 		.item-title {
 		
-			font-size:90%;
+			font-size:100%;
 			min-height: auto;
 			position: relative;
 			bottom: 5px;
@@ -1459,18 +1481,18 @@ right: 51px;
 		
 		.price__weight {
 			color: #6c757d!important;
-			font-size: 79%;
+			font-size: 65%;
 			line-height: 1;
 			position: relative;
-			left: 18px;
-			bottom: 16px;
+			left: 35%;
+			bottom: 25px;
 		}
 		
 		.price__currency {
 			font-size: 120%;
 			position: relative;
 			right:42px;
-			top: -2px;
+			top: -10px;
 		}
 		
 		._korzina {
@@ -1641,10 +1663,10 @@ right: 51px;
 		
 		
 		.items.counter-wrapper{
-			width: 55px;
+			width: 70%;
 			height:14px;
 			position: relative;
-			bottom: 15px;
+			bottom: 25px;
 			right: 17px;
 		
 			
@@ -1652,12 +1674,14 @@ right: 51px;
 		 
 		.btn.btn-block.btn-outline-warning{
 			height: 40%;
-			width: 80%;
+			width: 75%;
+			min-width: 10%;
+			min-height: 10%;
 			font-size: 60%;
 			line-height: 70%;
 			position: relative;
-			bottom: 47px;
-			left:50px;
+			bottom: 58px;
+			left:62px;
 			background-color: white;
 			text-align: center;
 			z-index: 9999;
