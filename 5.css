@@ -14,7 +14,7 @@ body, html {
  width: 100px;
  height:100px;
  margin: 0 auto 15px;
- border-radius: 50px;
+ border-radius: 49px;
  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px #fff;
 }
 
