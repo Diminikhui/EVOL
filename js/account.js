@@ -1,7 +1,8 @@
 import { el } from './dom.js';
 import * as notify from './notify.js';
+import { isServer, user, requireLogin, ordersApi, bonus, logout, displayName } from './backend.js';
 import {
-  cart, orders, profile, favorites, addresses, addressLabel, bonusBalance,
+  cart, profile, favorites, addresses, addressLabel,
   loadProducts, formatPrice, imageUrl, BONUS_RATE, BONUS_MAX_SHARE,
 } from './store.js';
 import { statusOf } from './status.js';
@@ -10,7 +11,11 @@ const MAX_THUMBS = 3;
 const dateFormat = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
 const formatDate = (iso) => dateFormat.format(new Date(iso)).replace(',', ' в').replace(' г.', '');
 
-document.querySelector('#name').textContent = profile.get().name || 'Имя Фамилия';
+await requireLogin('account.html');
+
+document.querySelector('#name').textContent = displayName() || 'Имя Фамилия';
+if (isServer && user) document.querySelector('#logout-box').hidden = false;
+document.querySelector('#logout')?.addEventListener('click', logout);
 
 const thumb = (line) => el('div', { className: 'thumb', title: line.title },
   el('img', { src: imageUrl(line.image), alt: line.title }),
@@ -40,8 +45,8 @@ function renderOrder(o) {
           : el('button', { type: 'button', className: 'btn btn--outline btn--sm', textContent: 'Повторить', onclick: repeat(o) }))));
 }
 
-function renderBonuses() {
-  document.querySelector('#bonus-balance').textContent = `${bonusBalance()} бонусов`;
+async function renderBonuses() {
+  document.querySelector('#bonus-balance').textContent = `${await bonus()} бонусов`;
   document.querySelector('#bonus-hint').textContent =
     `1 бонус = 1 ₽. Начисляем ${BONUS_RATE * 100}% за доставленный заказ, оплатить бонусами можно до ${BONUS_MAX_SHARE * 100}% заказа.`;
 }
@@ -98,8 +103,9 @@ function setupNotifications() {
   });
 }
 
-function render() {
-  const list = orders.get();
+async function render() {
+  let list;
+  try { list = await ordersApi.list(); } catch { return; }
   const current = list.find((o) => statusOf(o).active);
   const statusBox = document.querySelector('#status');
   if (current) {
@@ -120,4 +126,4 @@ renderBonuses();
 renderAddresses();
 renderFavorites();
 setupNotifications();
-setInterval(() => { render(); renderBonuses(); }, 5000);
+setInterval(() => { render(); renderBonuses(); }, isServer ? 10000 : 5000);

@@ -8,19 +8,22 @@ export const STEPS = [
 ];
 export const CANCELLABLE_UNTIL = 1; // отменить можно на этапах «Принят» и «Собирается»
 
+// Заказ с сервера приходит с готовым статусом (order.status); локальный демо-заказ считаем по времени.
 export function statusOf(order, now = Date.now()) {
-  if (order.cancelled) {
-    return { key: 'cancelled', label: 'Отменён', hint: 'Заказ отменён', index: -1, cancelled: true, done: true, active: false, canCancel: false, etaMs: 0 };
+  if (order.cancelled || order.status === 'cancelled') {
+    return { key: 'cancelled', label: 'Отменён', hint: 'Заказ отменён', index: -1, cancelled: true, done: true, active: false, canCancel: false, etaMs: null };
   }
-  const elapsed = Math.max(0, now - new Date(order.date).getTime());
-  const index = STEPS.reduce((last, step, i) => (elapsed >= step.at ? i : last), 0);
+  let index;
+  let etaMs = null;
+  if (order.status) {
+    index = Math.max(0, STEPS.findIndex((step) => step.key === order.status));
+  } else {
+    const elapsed = Math.max(0, now - new Date(order.date).getTime());
+    index = STEPS.reduce((last, step, i) => (elapsed >= step.at ? i : last), 0);
+    if (index < STEPS.length - 1) etaMs = STEPS[STEPS.length - 1].at - elapsed;
+  }
   const done = index === STEPS.length - 1;
-  return {
-    ...STEPS[index], index, cancelled: false, done,
-    active: !done,
-    canCancel: index <= CANCELLABLE_UNTIL,
-    etaMs: done ? 0 : STEPS[STEPS.length - 1].at - elapsed,
-  };
+  return { ...STEPS[index], index, cancelled: false, done, active: !done, canCancel: index <= CANCELLABLE_UNTIL, etaMs };
 }
 
 export function formatEta(ms) {

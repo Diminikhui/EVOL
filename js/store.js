@@ -1,5 +1,10 @@
 // Хранилище на localStorage: корзина, заказы, профиль, избранное, адреса.
 import { statusOf } from './status.js';
+import {
+  FREE_DELIVERY_FROM, DELIVERY_COST, BONUS_RATE, BONUS_MAX_SHARE, formatRub, priceOrder, checkPromo,
+} from './rules.js';
+
+export { FREE_DELIVERY_FROM, DELIVERY_COST, BONUS_RATE, BONUS_MAX_SHARE };
 const read = (key, fallback) => {
   try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
   catch { return fallback; }
@@ -8,10 +13,6 @@ const write = (key, value) => {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* приватный режим */ }
 };
 
-export const FREE_DELIVERY_FROM = 5000;
-export const DELIVERY_COST = 500;
-export const BONUS_RATE = 0.05;        // начисляем 5% от оплаченной суммы
-export const BONUS_MAX_SHARE = 0.3;     // бонусами можно оплатить до 30% заказа
 
 export const cart = {
   get: () => read('evol:cart', {}),            // { [productId]: qty }
@@ -92,14 +93,8 @@ export async function loadPromos() {
 }
 
 export function findPromo(code, promos, subtotal) {
-  const promo = promos.find((p) => p.code === code.trim().toUpperCase());
-  if (!promo) return { error: 'Такого промокода нет' };
-  if (promo.minSubtotal && subtotal < promo.minSubtotal) {
-    return { error: `Промокод действует от ${formatPrice(promo.minSubtotal)}` };
-  }
-  const used = orders.get().some((o) => !o.cancelled && o.promo === promo.code);
-  if (promo.once && used) return { error: 'Этот промокод вы уже использовали' };
-  return { promo };
+  const used = orders.get().filter((o) => !o.cancelled && o.promo).map((o) => o.promo);
+  return checkPromo(code, promos, subtotal, used);
 }
 
 // Бонусы начисляются за доставленные заказы и списываются при оформлении.
@@ -129,27 +124,12 @@ export const imageUrl = (name) => (name ? (name.startsWith('uploads/') ? name : 
 export const stockOf = (product) => (Number.isInteger(product.stock) ? product.stock : null);
 export const inStock = (product) => stockOf(product) === null || stockOf(product) > 0;
 
-export const formatPrice = (n) => `${n.toLocaleString('ru-RU')} ₽`;
+export const formatPrice = formatRub;
 
 // options: { promo, bonuses } — применяемый промокод и сколько бонусов списать.
-export function priceCart(items, products, { promo = null, bonuses = 0 } = {}) {
+export function priceCart(items, products, options) {
   const lines = Object.entries(items)
     .map(([id, qty]) => ({ product: products.find((p) => p.id === Number(id)), qty }))
     .filter((line) => line.product);
-  const subtotal = lines.reduce((sum, { product, qty }) => sum + product.price * qty, 0);
-
-  let discount = 0;
-  if (promo?.type === 'percent') discount = Math.round((subtotal * promo.value) / 100);
-  if (promo?.type === 'fixed') discount = Math.min(promo.value, subtotal);
-  const discounted = subtotal - discount;
-
-  const freeDelivery = subtotal >= FREE_DELIVERY_FROM || promo?.type === 'delivery';
-  const delivery = subtotal === 0 || freeDelivery ? 0 : DELIVERY_COST;
-
-  const maxBonuses = Math.floor(discounted * BONUS_MAX_SHARE);
-  const bonusSpent = Math.max(0, Math.min(bonuses, maxBonuses));
-  const total = discounted + delivery - bonusSpent;
-  const bonusEarned = Math.floor((discounted - bonusSpent) * BONUS_RATE);
-
-  return { lines, subtotal, discount, delivery, bonusSpent, maxBonuses, total, bonusEarned };
+  return { lines, ...priceOrder(lines, options) };
 }

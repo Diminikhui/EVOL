@@ -11,7 +11,7 @@
 <main class="panel">
   <div class="panel__icon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/></svg></div>
   <h1 class="panel__title">Регистрация</h1>
-  <form data-next="address.html" data-save="name,phone,card">
+  <form data-api="register" data-next="address.html" data-save="name,phone">
     <label class="field">
       <span class="field__label">ФИО</span>
       <input class="field__input" name="name" type="text" placeholder="введите ваше ФИО" required autocomplete="name">
@@ -21,12 +21,8 @@
       <input class="field__input" name="phone" type="tel" placeholder="введите ваш номер телефона" required autocomplete="tel">
     </label>
     <label class="field">
-      <span class="field__label">Номер карты</span>
-      <input class="field__input" name="card" type="text" placeholder="введите ваш номер карты" required inputmode="numeric" autocomplete="cc-number">
-    </label>
-    <label class="field">
       <span class="field__label">Пароль</span>
-      <input class="field__input" name="password" type="password" placeholder="придумайте пароль" required autocomplete="new-password">
+      <input class="field__input" name="password" type="password" placeholder="не короче 8 символов" required minlength="8" autocomplete="new-password">
     </label>
     <label class="field">
       <span class="field__label">Повторите пароль</span>

@@ -1,5 +1,6 @@
 import { el } from './dom.js';
 import { formatPrice, imageUrl } from './store.js';
+import { request } from './backend.js';
 
 const $ = (selector) => document.querySelector(selector);
 const dialog = $('#product-dialog');
@@ -24,15 +25,53 @@ const message = (node, text) => { node.textContent = text ?? ''; show(node, Bool
 
 // ---------- Вход ----------
 function showLogin() {
-  show($('#login-form'), true); show($('#products-section'), false); show($('#admin-user'), false);
+  show($('#login-form'), true); show($('#products-section'), false); show($('#staff-section'), false);
+  show($('#admin-nav'), false); show($('#admin-user'), false);
 }
+
+const ROLES = { admin: 'Администратор', staff: 'Сотрудник склада', courier: 'Курьер' };
+let currentUser = null;
+
+function openTab(name) {
+  show($('#products-section'), name === 'products');
+  show($('#staff-section'), name === 'staff');
+  document.querySelectorAll('#admin-nav [data-tab]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tab === name)));
+  if (name === 'staff') loadStaff();
+}
+$('#admin-nav').addEventListener('click', (event) => { const t = event.target.dataset?.tab; if (t) openTab(t); });
+
+async function loadStaff() {
+  try {
+    const list = await request('api/staff');
+    message($('#staff-error'), '');
+    $('#staff-table tbody').replaceChildren(...list.map((u) => el('tr', {},
+      el('td', {}, el('b', { textContent: u.login })),
+      el('td', { textContent: ROLES[u.role] ?? u.role }),
+      el('td', {}, u.id === currentUser.id ? el('small', { className: 'muted', textContent: 'это вы' })
+        : el('div', { className: 'actions' }, el('button', { type: 'button', className: 'btn btn--outline btn--sm btn--danger', textContent: 'Удалить',
+            onclick: async () => {
+              if (!confirm(`Удалить сотрудника «${u.login}»?`)) return;
+              try { await request(`api/staff/${u.id}`, { method: 'DELETE' }); loadStaff(); }
+              catch (error) { message($('#staff-error'), error.message); }
+            } }))))));
+  } catch (error) { message($('#staff-error'), error.message); }
+}
+
+$('#staff-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  try {
+    await request('api/staff', { method: 'POST', body: Object.fromEntries(new FormData(event.target)) });
+    event.target.reset(); loadStaff();
+  } catch (error) { message($('#staff-error'), error.message); }
+});
 
 async function start() {
   try {
     const user = await api('api/me');
-    if (!['admin', 'staff'].includes(user.role)) throw new Error('Нет доступа');
+    if (user.role !== 'admin') throw new Error('Нет доступа');
+    currentUser = user;
     $('#admin-login').textContent = user.login;
-    show($('#admin-user'), true); show($('#login-form'), false); show($('#products-section'), true);
+    show($('#admin-user'), true); show($('#login-form'), false); show($('#admin-nav'), true); openTab('products');
     await loadProducts();
   } catch (error) {
     if (error.status === 404) {

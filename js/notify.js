@@ -1,6 +1,7 @@
 // Уведомления о смене статуса заказа.
 // Работают, пока сайт открыт в браузере (бэкенда для настоящего push пока нет).
-import { orders, notifyPrefs } from './store.js';
+import { notifyPrefs } from './store.js';
+import { isServer, ordersApi } from './backend.js';
 import { statusOf } from './status.js';
 
 export const supported = 'Notification' in window;
@@ -33,10 +34,12 @@ export async function enable() {
 
 export const disable = () => notifyPrefs.set(false);
 
-function check() {
+async function check() {
   if (!isEnabled()) return;
+  let list;
+  try { list = await ordersApi.list(); } catch { return; }
   const seen = notifyPrefs.seen();
-  for (const order of orders.get()) {
+  for (const order of list) {
     const status = statusOf(order);
     const number = order.id % 100000;
     const previous = seen[order.id];
@@ -49,4 +52,4 @@ function check() {
 }
 
 check();
-setInterval(check, 5000);
+setInterval(check, isServer ? 10000 : 5000);

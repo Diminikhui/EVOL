@@ -29,6 +29,36 @@
     <button class="btn" type="submit">Войти</button>
   </form>
 
+  <nav class="admin-nav" id="admin-nav" hidden>
+    <button class="chip" type="button" data-tab="products" aria-pressed="true">Товары</button>
+    <button class="chip" type="button" data-tab="staff" aria-pressed="false">Сотрудники</button>
+    <a class="chip" href="staff.html">Заказы →</a>
+  </nav>
+
+  <section id="staff-section" hidden>
+    <div class="admin__bar"><h1>Сотрудники</h1></div>
+    <p class="form-error" id="staff-error" role="alert" hidden></p>
+    <form class="staff-form" id="staff-form">
+      <label class="field"><span class="field__label">Логин</span>
+        <input class="field__input" name="login" required pattern="[\w.\-]{3,40}" autocomplete="off"></label>
+      <label class="field"><span class="field__label">Пароль (от 8 символов)</span>
+        <input class="field__input" name="password" type="password" required minlength="8" autocomplete="new-password"></label>
+      <label class="field"><span class="field__label">Роль</span>
+        <select class="field__input" name="role">
+          <option value="staff">Сотрудник склада</option>
+          <option value="courier">Курьер</option>
+          <option value="admin">Администратор</option>
+        </select></label>
+      <button class="btn btn--sm" type="submit">Добавить</button>
+    </form>
+    <div class="table-wrap">
+      <table class="table" id="staff-table" style="min-width:420px">
+        <thead><tr><th>Логин</th><th>Роль</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
   <section id="products-section" hidden>
     <div class="admin__bar">
       <h1>Товары</h1>

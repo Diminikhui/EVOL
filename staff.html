@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Заказы — EVOL</title>
+  <link rel="icon" href="img/logo-2.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<header class="header">
+  <a href="catalog.html"><img class="header__logo" src="img/logo-2.svg" alt="EVOL"></a>
+  <div class="admin-user" id="staff-user" hidden>
+    <a class="btn btn--outline btn--sm" id="to-admin" href="admin.html" hidden>Админка</a>
+    <span id="staff-login"></span>
+    <button class="btn btn--outline btn--sm" type="button" id="logout">Выйти</button>
+  </div>
+</header>
+
+<main class="admin" id="staff">
+  <form class="panel" id="login-form" hidden>
+    <h1 class="panel__title">Вход для сотрудников</h1>
+    <label class="field"><span class="field__label">Логин</span>
+      <input class="field__input" name="login" autocomplete="username" required></label>
+    <label class="field"><span class="field__label">Пароль</span>
+      <input class="field__input" name="password" type="password" autocomplete="current-password" required></label>
+    <p class="form-error" id="login-error" role="alert" hidden></p>
+    <button class="btn" type="submit">Войти</button>
+  </form>
+
+  <section id="board" hidden>
+    <div class="admin__bar"><h1 id="board-title">Заказы</h1><span class="muted" id="updated"></span></div>
+    <div class="chips chips--row" id="tabs" role="group" aria-label="Статусы"></div>
+    <p class="form-error" id="list-error" role="alert" hidden></p>
+    <div class="orders-board" id="orders-board"></div>
+  </section>
+</main>
+<script type="module" src="js/staff.js"></script>
+</body>
+</html>

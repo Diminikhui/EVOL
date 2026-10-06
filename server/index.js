@@ -1,11 +1,15 @@
 // Сервер EVOL: статические файлы сайта + JSON API. Без внешних зависимостей.
 import { createServer } from 'node:http';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import { join, extname, normalize, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomBytes } from 'node:crypto';
 import { openDb } from './db.js';
-import { verifyPassword, createSessions, parseCookies, createLoginLimiter } from './auth.js';
+import { verifyPassword, hashPassword, createSessions, parseCookies, createLoginLimiter } from './auth.js';
+import { HttpError } from './http-error.js';
+import { createOrder, listOrders, getOrder, changeStatus, bonusBalance } from './orders.js';
+import { normalizePhone } from '../js/rules.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const MAX_JSON = 100 * 1024;
@@ -25,11 +29,10 @@ const IMAGE_TYPES = [
 
 // Что сайт отдаёт как статику: только публичные папки и страницы в корне.
 const PUBLIC_DIRS = ['css', 'js', 'img', 'uploads'];
+const readPromos = () => { try { return JSON.parse(readFileSync(join(root, 'data', 'promos.json'), 'utf8')); } catch { return []; } };
 const PUBLIC_FILES = new Set(['data/products.json', 'data/promos.json', 'sw.js']);
 
-class HttpError extends Error {
-  constructor(status, message) { super(message); this.status = status; }
-}
+const publicUser = (u) => ({ id: u.id, login: u.login, role: u.role, name: u.name ?? '' });
 
 const productFromRow = (r) => ({
   id: r.id, title: r.title, category: r.category, summary: r.summary, description: r.description,
@@ -64,7 +67,7 @@ function validateProduct(body) {
   };
 }
 
-export function createApp({ db = openDb(), sessions = createSessions(), limiter = createLoginLimiter() } = {}) {
+export function createApp({ db = openDb(), sessions = createSessions(), limiter = createLoginLimiter(), promos = readPromos() } = {}) {
   const readBody = (req, limit) => new Promise((resolve, reject) => {
     const chunks = []; let size = 0;
     req.on('data', (chunk) => {
@@ -90,7 +93,7 @@ export function createApp({ db = openDb(), sessions = createSessions(), limiter 
   const currentUser = (req) => {
     const session = sessions.read(parseCookies(req.headers.cookie).evol_session);
     if (!session) return null;
-    return db.prepare('SELECT id, login, role FROM users WHERE id = ?').get(session.id) ?? null;
+    return db.prepare('SELECT id, login, role, name FROM users WHERE id = ?').get(session.id) ?? null;
   };
   const requireRole = (req, ...roles) => {
     const user = currentUser(req);
@@ -103,11 +106,38 @@ export function createApp({ db = openDb(), sessions = createSessions(), limiter 
     const { method } = req;
     const path = url.pathname;
 
+    const startSession = (req, res, user, status = 200) => {
+      const secure = req.headers['x-forwarded-proto'] === 'https' ? '; Secure' : '';
+      return send(res, status, publicUser(user), {
+        'set-cookie': `evol_session=${sessions.issue(user)}; HttpOnly; SameSite=Strict; Path=/; Max-Age=43200${secure}`,
+      });
+    };
+
+    if (path === '/api/register' && method === 'POST') {
+      const ip = req.socket.remoteAddress;
+      if (limiter.blocked(ip)) throw new HttpError(429, 'Слишком много попыток. Подождите несколько минут');
+      const body = await readJson(req);
+      const name = String(body.name ?? '').trim();
+      const phone = normalizePhone(body.phone);
+      const password = String(body.password ?? '');
+      if (!name || name.length > 80) throw new HttpError(400, 'Укажите имя');
+      if (!phone) throw new HttpError(400, 'Укажите телефон в формате +7 900 123-45-67');
+      if (password.length < 8 || password.length > 200) throw new HttpError(400, 'Пароль должен быть не короче 8 символов');
+      if (db.prepare('SELECT 1 FROM users WHERE login = ? OR phone = ?').get(phone, phone)) {
+        limiter.fail(ip);
+        throw new HttpError(409, 'Этот номер уже зарегистрирован. Войдите в аккаунт');
+      }
+      const { lastInsertRowid } = db.prepare("INSERT INTO users (login, password_hash, role, name, phone) VALUES (?, ?, 'customer', ?, ?)")
+        .run(phone, hashPassword(password), name, phone);
+      return startSession(req, res, db.prepare('SELECT * FROM users WHERE id = ?').get(lastInsertRowid), 201);
+    }
     if (path === '/api/login' && method === 'POST') {
       const ip = req.socket.remoteAddress;
       if (limiter.blocked(ip)) throw new HttpError(429, 'Слишком много попыток. Подождите несколько минут');
       const { login = '', password = '' } = await readJson(req);
-      const user = db.prepare('SELECT * FROM users WHERE login = ?').get(String(login));
+      // Покупатели входят по телефону, сотрудники по логину.
+      const user = db.prepare('SELECT * FROM users WHERE login = ?').get(String(login))
+        ?? db.prepare('SELECT * FROM users WHERE phone = ?').get(normalizePhone(login) ?? '');
       // Проверяем пароль даже для несуществующего логина, чтобы время ответа не выдавало его наличие.
       const stored = user?.password_hash ?? `${'0'.repeat(32)}:${'0'.repeat(128)}`;
       if (!verifyPassword(String(password), stored) || !user) {
@@ -115,17 +145,65 @@ export function createApp({ db = openDb(), sessions = createSessions(), limiter 
         throw new HttpError(401, 'Неверный логин или пароль');
       }
       limiter.reset(ip);
-      const secure = req.headers['x-forwarded-proto'] === 'https' ? '; Secure' : '';
-      return send(res, 200, { login: user.login, role: user.role }, {
-        'set-cookie': `evol_session=${sessions.issue(user)}; HttpOnly; SameSite=Strict; Path=/; Max-Age=43200${secure}`,
-      });
+      return startSession(req, res, user);
     }
     if (path === '/api/logout' && method === 'POST') {
       return send(res, 200, { ok: true }, { 'set-cookie': 'evol_session=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0' });
     }
     if (path === '/api/me' && method === 'GET') {
       const user = currentUser(req);
-      return user ? send(res, 200, user) : send(res, 401, { error: 'Нужно войти' });
+      if (!user) return send(res, 401, { error: 'Нужно войти' });
+      return send(res, 200, { ...user, ...(user.role === 'customer' ? { bonus: bonusBalance(db, user.id) } : {}) });
+    }
+
+    // ---------- Заказы ----------
+    if (path === '/api/orders' && method === 'POST') {
+      const user = requireRole(req, 'customer');
+      return send(res, 201, createOrder(db, user, await readJson(req), promos));
+    }
+    if (path === '/api/orders' && method === 'GET') {
+      const user = requireRole(req, 'customer', 'staff', 'courier', 'admin');
+      return send(res, 200, listOrders(db, user, { status: url.searchParams.get('status') || undefined }));
+    }
+    const orderMatch = path.match(/^\/api\/orders\/(\d+)(\/status)?$/);
+    if (orderMatch && !orderMatch[2] && method === 'GET') {
+      const user = requireRole(req, 'customer', 'staff', 'courier', 'admin');
+      return send(res, 200, getOrder(db, user, Number(orderMatch[1])));
+    }
+    if (orderMatch && orderMatch[2] && method === 'POST') {
+      const user = requireRole(req, 'customer', 'staff', 'courier', 'admin');
+      const { status } = await readJson(req);
+      return send(res, 200, changeStatus(db, user, Number(orderMatch[1]), String(status)));
+    }
+
+    // ---------- Сотрудники (только админ) ----------
+    if (path === '/api/staff' && method === 'GET') {
+      requireRole(req, 'admin');
+      return send(res, 200, db.prepare("SELECT id, login, role FROM users WHERE role != 'customer' ORDER BY id").all());
+    }
+    if (path === '/api/staff' && method === 'POST') {
+      requireRole(req, 'admin');
+      const { login = '', password = '', role = '' } = await readJson(req);
+      if (!/^[\w.-]{3,40}$/.test(login)) throw new HttpError(400, 'Логин: 3–40 символов, латиница, цифры, точка, дефис');
+      if (!['staff', 'courier', 'admin'].includes(role)) throw new HttpError(400, 'Неизвестная роль');
+      if (String(password).length < 8) throw new HttpError(400, 'Пароль должен быть не короче 8 символов');
+      if (db.prepare('SELECT 1 FROM users WHERE login = ?').get(login)) throw new HttpError(409, 'Такой логин уже занят');
+      const { lastInsertRowid } = db.prepare('INSERT INTO users (login, password_hash, role) VALUES (?, ?, ?)').run(login, hashPassword(String(password)), role);
+      return send(res, 201, { id: Number(lastInsertRowid), login, role });
+    }
+    const staffMatch = path.match(/^\/api\/staff\/(\d+)$/);
+    if (staffMatch && method === 'DELETE') {
+      const admin = requireRole(req, 'admin');
+      const id = Number(staffMatch[1]);
+      if (id === admin.id) throw new HttpError(400, 'Нельзя удалить самого себя');
+      try {
+        const { changes } = db.prepare("DELETE FROM users WHERE id = ? AND role != 'customer'").run(id);
+        if (!changes) throw new HttpError(404, 'Сотрудник не найден');
+      } catch (error) {
+        if (error instanceof HttpError) throw error;
+        throw new HttpError(409, 'Сотрудника нельзя удалить: за ним числятся заказы');
+      }
+      return send(res, 200, { ok: true });
     }
 
     if (path === '/api/products' && method === 'GET') {

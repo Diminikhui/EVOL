@@ -22,3 +22,25 @@
 @media (max-width: 600px) {
   .admin-user #admin-login { display: none; }
 }
+
+/* ---------- Панель заказов ---------- */
+.muted { color: var(--muted); font-size: 14px; }
+.chips--row { display: flex; flex-wrap: wrap; gap: 8px; position: static; margin-bottom: 16px; }
+.chips--row .chip { min-height: 0; padding: 8px 16px; }
+.chip__count { margin-left: 6px; padding: 0 7px; border-radius: 10px; background: #f0503c; color: #fff; font-size: 12px; }
+.chip[aria-pressed="true"] .chip__count { background: #fff; color: var(--accent-dark); }
+.orders-board { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; align-items: start; }
+.ticket { padding: 16px; border-radius: 20px; background: #fff; box-shadow: 0 4px 14px rgba(132, 72, 137, .18); display: grid; gap: 8px; }
+.ticket__head { display: flex; justify-content: space-between; gap: 8px; font-weight: 700; }
+.ticket__head small { color: var(--muted); font-weight: 400; }
+.ticket__row { margin: 0; font-size: 14px; }
+.ticket__row b { color: var(--muted); font-size: 12px; font-weight: 600; text-transform: uppercase; display: block; }
+.ticket__row a { color: var(--accent-dark); font-weight: 700; }
+.ticket__lines { margin: 0; padding-left: 18px; font-size: 14px; }
+.ticket__total { display: flex; justify-content: space-between; padding-top: 8px; border-top: 1px solid #eee; font-weight: 700; }
+.ticket__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.ticket__actions .btn { flex: 1; min-width: 120px; }
+.staff-form { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; align-items: end; margin-bottom: 16px; }
+.staff-form .field { margin: 0; }
+.admin-nav { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+@media (max-width: 700px) { .staff-form { grid-template-columns: 1fr; } }
