@@ -30,6 +30,10 @@ export const cart = {
 export const orders = {
   get: () => read('evol:orders', []),
   add(order) { write('evol:orders', [order, ...this.get()]); },
+  find: (id) => orders.get().find((o) => o.id === Number(id)),
+  update(id, patch) {
+    write('evol:orders', this.get().map((o) => (o.id === Number(id) ? { ...o, ...patch } : o)));
+  },
 };
 
 export const profile = {

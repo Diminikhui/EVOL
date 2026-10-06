@@ -46,12 +46,12 @@ form.addEventListener('submit', (event) => {
   profile.merge({ city: data.city, street: data.street, flat: data.flat, floor: data.floor,
     intercom: data.intercom, phone: data.phone, comment: '' });
 
+  const id = Date.now();
   orders.add({
-    id: Date.now(),
+    id,
     date: new Date().toISOString(),
     total: pricing.total,
     delivery: pricing.delivery,
-    status: 'Принят',
     address: addressLine(data),
     phone: data.phone,
     payment: data.payment,
@@ -60,7 +60,7 @@ form.addEventListener('submit', (event) => {
       id: product.id, title: product.title, image: product.image, qty, price: product.price })),
   });
   cart.clear();
-  location.href = 'account.html';
+  location.href = `track.html?id=${id}`;
 });
 
 try {
