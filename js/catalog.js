@@ -1,6 +1,6 @@
 import { el } from './dom.js';
 import './notify.js';
-import { cart, favorites, loadProducts, formatPrice, priceCart, FREE_DELIVERY_FROM } from './store.js';
+import { cart, favorites, loadProducts, formatPrice, priceCart, imageUrl, stockOf, inStock, FREE_DELIVERY_FROM } from './store.js';
 
 const grid = document.querySelector('#grid');
 const chips = document.querySelector('#chips');
@@ -41,29 +41,34 @@ function heart(p) {
 
 function renderProduct(p) {
   const qty = cart.get()[p.id] ?? 0;
-  const control = qty
+  const control = !inStock(p)
+    ? el('span', { className: 'sold-out', textContent: 'Нет в наличии' })
+    : qty
     ? el('div', { className: 'stepper' },
         el('button', { type: 'button', ariaLabel: 'Убрать', textContent: '−', onclick: () => update(p.id, -1) }),
         el('span', { textContent: qty }),
         el('button', { type: 'button', ariaLabel: 'Добавить', textContent: '+', onclick: () => update(p.id, 1) }))
     : el('button', { type: 'button', className: 'add', ariaLabel: `Добавить в корзину: ${p.title}`, textContent: '+', onclick: () => update(p.id, 1) });
-  const discount = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
+  const discount = p.oldPrice && inStock(p) ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
 
-  return el('article', { className: 'product' },
+  return el('article', { className: `product${inStock(p) ? '' : ' product--sold'}` },
     el('div', { className: 'product__photo' },
       el('a', { className: 'product__link', href: `product.html?id=${p.id}`, ariaLabel: p.title },
-        el('img', { className: 'product__img', src: `img/${p.image}`, alt: '' })),
+        el('img', { className: 'product__img', src: imageUrl(p.image), alt: '' })),
       discount ? el('span', { className: 'badge', textContent: `−${discount}%` }) : null,
       heart(p),
       control),
     el('div', { className: `product__price${discount ? ' product__price--sale' : ''}` },
       formatPrice(p.price),
       discount ? el('span', { className: 'product__old', textContent: formatPrice(p.oldPrice) }) : null),
+    stockOf(p) > 0 && stockOf(p) <= 5 ? el('p', { className: 'product__low', textContent: `Осталось ${stockOf(p)}` }) : null,
     el('h2', { className: 'product__title' }, el('a', { href: `product.html?id=${p.id}`, textContent: `${p.title} ` }), el('small', { textContent: `${p.weight} кг` })),
     el('p', { className: 'product__summary', textContent: p.summary }));
 }
 
 function update(id, delta) {
+  const stock = stockOf(products.find((p) => p.id === id));
+  if (delta > 0 && stock !== null && (cart.get()[id] ?? 0) + delta > stock) return;   // больше остатка нельзя
   cart.change(id, delta);
   renderGrid();
   renderCart();
@@ -85,7 +90,7 @@ function renderCart() {
 
   const items = el('ul', { className: 'cart__items' }, ...lines.map(({ product, qty }) =>
     el('li', { className: 'cart__item' },
-      el('img', { src: `img/${product.image}`, alt: '' }),
+      el('img', { src: imageUrl(product.image), alt: '' }),
       el('span', { textContent: product.title }),
       counterEl(qty, (delta) => update(product.id, delta)),
       el('span', { className: 'price', textContent: formatPrice(product.price * qty) }))));

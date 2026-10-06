@@ -2,7 +2,7 @@ import './notify.js';
 import { el } from './dom.js';
 import {
   cart, orders, profile, addresses, addressLabel, loadProducts, loadPromos,
-  findPromo, bonusBalance, formatPrice, priceCart,
+  findPromo, bonusBalance, formatPrice, priceCart, imageUrl,
 } from './store.js';
 
 const $ = (selector) => document.querySelector(selector);
@@ -32,7 +32,7 @@ function renderTotals() {
   const p = pricing();
   $('#summary').replaceChildren(...p.lines.map(({ product, qty }) =>
     el('li', { className: 'summary__item' },
-      el('img', { src: `img/${product.image}`, alt: '' }),
+      el('img', { src: imageUrl(product.image), alt: '' }),
       el('span', { textContent: `${product.title} × ${qty}` }),
       el('span', { className: 'price', textContent: formatPrice(product.price * qty) }))));
 

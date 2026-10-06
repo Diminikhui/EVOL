@@ -111,11 +111,23 @@ export function bonusBalance() {
   }, 0);
 }
 
+// Товары берём с сервера; если его нет (статический хостинг), читаем data/products.json.
 export async function loadProducts() {
-  const response = await fetch('data/products.json');
-  if (!response.ok) throw new Error(`products.json: ${response.status}`);
-  return response.json();
+  for (const url of ['api/products', 'data/products.json']) {
+    try {
+      const response = await fetch(url);
+      if (response.ok && (response.headers.get('content-type') ?? '').includes('json')) return await response.json();
+    } catch { /* пробуем следующий источник */ }
+  }
+  throw new Error('Не удалось загрузить товары');
 }
+
+// Фото из админки лежат в uploads/, встроенные картинки — в img/.
+export const imageUrl = (name) => (name ? (name.startsWith('uploads/') ? name : `img/${name}`) : 'img/paint.jpg');
+
+// null — остаток неизвестен (статический режим), иначе число штук.
+export const stockOf = (product) => (Number.isInteger(product.stock) ? product.stock : null);
+export const inStock = (product) => stockOf(product) === null || stockOf(product) > 0;
 
 export const formatPrice = (n) => `${n.toLocaleString('ru-RU')} ₽`;
 

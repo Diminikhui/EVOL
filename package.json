@@ -1,0 +1,12 @@
+{
+  "name": "evol",
+  "version": "1.5.0",
+  "private": true,
+  "type": "module",
+  "description": "Доставка лакокрасочных покрытий",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node --test server/"
+  },
+  "engines": { "node": ">=22.5" }
+}

@@ -2,7 +2,7 @@ import { el } from './dom.js';
 import * as notify from './notify.js';
 import {
   cart, orders, profile, favorites, addresses, addressLabel, bonusBalance,
-  loadProducts, formatPrice, BONUS_RATE, BONUS_MAX_SHARE,
+  loadProducts, formatPrice, imageUrl, BONUS_RATE, BONUS_MAX_SHARE,
 } from './store.js';
 import { statusOf } from './status.js';
 
@@ -13,7 +13,7 @@ const formatDate = (iso) => dateFormat.format(new Date(iso)).replace(',', ' в')
 document.querySelector('#name').textContent = profile.get().name || 'Имя Фамилия';
 
 const thumb = (line) => el('div', { className: 'thumb', title: line.title },
-  el('img', { src: `img/${line.image || 'paint.jpg'}`, alt: line.title }),
+  el('img', { src: imageUrl(line.image), alt: line.title }),
   line.qty > 1 ? el('span', { className: 'thumb__qty', textContent: `×${line.qty}` }) : null);
 
 const repeat = (order) => () => {
@@ -71,7 +71,7 @@ async function renderFavorites() {
   const products = (await loadProducts()).filter((p) => ids.includes(p.id));
   box.replaceChildren(el('ul', { className: 'fav-list' }, ...products.map((p) =>
     el('li', {}, el('a', { className: 'fav', href: `product.html?id=${p.id}` },
-      el('img', { src: `img/${p.image}`, alt: '' }),
+      el('img', { src: imageUrl(p.image), alt: '' }),
       el('span', {}, el('b', { textContent: p.title }), el('small', { textContent: formatPrice(p.price) })))))));
 }
 

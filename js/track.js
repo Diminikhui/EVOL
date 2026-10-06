@@ -1,6 +1,6 @@
 import './notify.js';
 import { el } from './dom.js';
-import { orders, formatPrice } from './store.js';
+import { orders, formatPrice, imageUrl } from './store.js';
 import { STEPS, statusOf, formatEta } from './status.js';
 
 const root = document.querySelector('#track');
@@ -57,7 +57,7 @@ function render() {
       row('Комментарий', order.comment),
       el('ul', { className: 'summary' }, ...order.lines.map((l) =>
         el('li', { className: 'summary__item' },
-          el('img', { src: `img/${l.image || 'paint.jpg'}`, alt: '' }),
+          el('img', { src: imageUrl(l.image), alt: '' }),
           el('span', { textContent: `${l.title} × ${l.qty}` }),
           el('span', { className: 'price', textContent: formatPrice(l.price * l.qty) })))),
       order.discount ? row('Скидка', `−${formatPrice(order.discount)} (${order.promo})`) : null,

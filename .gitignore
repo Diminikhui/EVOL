@@ -2,3 +2,8 @@
 .idea/
 .nova/
 .claude/
+data/*.db
+data/*.db-*
+uploads/*
+!uploads/.gitkeep
+node_modules/

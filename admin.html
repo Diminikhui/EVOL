@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Админка — EVOL</title>
+  <link rel="icon" href="img/logo-2.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<header class="header">
+  <a href="catalog.html"><img class="header__logo" src="img/logo-2.svg" alt="EVOL"></a>
+  <div class="admin-user" id="admin-user" hidden>
+    <span id="admin-login"></span>
+    <button class="btn btn--outline btn--sm" type="button" id="logout">Выйти</button>
+  </div>
+</header>
+
+<main class="admin" id="admin">
+  <form class="panel" id="login-form" hidden>
+    <h1 class="panel__title">Вход в админку</h1>
+    <label class="field"><span class="field__label">Логин</span>
+      <input class="field__input" name="login" autocomplete="username" required></label>
+    <label class="field"><span class="field__label">Пароль</span>
+      <input class="field__input" name="password" type="password" autocomplete="current-password" required></label>
+    <p class="form-error" id="login-error" role="alert" hidden></p>
+    <button class="btn" type="submit">Войти</button>
+  </form>
+
+  <section id="products-section" hidden>
+    <div class="admin__bar">
+      <h1>Товары</h1>
+      <button class="btn btn--sm" type="button" id="add-product">+ Добавить товар</button>
+    </div>
+    <p class="form-error" id="list-error" role="alert" hidden></p>
+    <div class="table-wrap">
+      <table class="table" id="products-table">
+        <thead><tr><th></th><th>Название</th><th>Категория</th><th>Цена</th><th>Остаток</th><th>Статус</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<dialog class="dialog" id="product-dialog">
+  <form id="product-form" method="dialog">
+    <h2 class="panel__title" id="dialog-title">Товар</h2>
+    <div class="dialog__photo">
+      <img id="photo-preview" alt="" src="img/paint.jpg">
+      <label class="btn btn--outline btn--sm">Загрузить фото
+        <input type="file" id="photo-input" accept="image/png,image/jpeg,image/gif,image/webp" hidden>
+      </label>
+    </div>
+    <label class="field"><span class="field__label">Название</span>
+      <input class="field__input" name="title" required maxlength="120"></label>
+    <label class="field"><span class="field__label">Категория</span>
+      <input class="field__input" name="category" list="categories" maxlength="60">
+      <datalist id="categories"></datalist></label>
+    <label class="field"><span class="field__label">Краткое описание</span>
+      <input class="field__input" name="summary" maxlength="160"></label>
+    <label class="field"><span class="field__label">Описание</span>
+      <textarea class="field__input field__input--area" name="description" rows="3" maxlength="2000"></textarea></label>
+    <div class="field-row field-row--2">
+      <label class="field"><span class="field__label">Цена, ₽</span>
+        <input class="field__input" name="price" type="number" min="0" step="1" required></label>
+      <label class="field"><span class="field__label">Старая цена</span>
+        <input class="field__input" name="oldPrice" type="number" min="0" step="1" placeholder="скидка"></label>
+    </div>
+    <div class="field-row field-row--2">
+      <label class="field"><span class="field__label">Остаток, шт</span>
+        <input class="field__input" name="stock" type="number" min="0" step="1" required></label>
+      <label class="field"><span class="field__label">Вес, кг</span>
+        <input class="field__input" name="weight" type="number" min="0" step="0.1"></label>
+    </div>
+    <label class="check"><input type="checkbox" name="active" checked> Показывать в каталоге</label>
+    <p class="form-error" id="form-error" role="alert" hidden></p>
+    <div class="dialog__actions">
+      <button class="btn btn--outline" type="button" id="cancel-dialog">Отмена</button>
+      <button class="btn" type="submit">Сохранить</button>
+    </div>
+  </form>
+</dialog>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>
