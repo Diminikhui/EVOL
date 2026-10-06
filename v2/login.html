@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вход — EVOL</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<main class="panel">
+  <div class="panel__icon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/></svg></div>
+  <h1 class="panel__title">Вход</h1>
+  <form data-next="catalog.html" data-save="name">
+    <label class="field">
+      <span class="field__label">Почта / телефон</span>
+      <input class="field__input" name="name" type="text" placeholder="почта / телефон" required autocomplete="username">
+    </label>
+    <label class="field">
+      <span class="field__label">Пароль</span>
+      <input class="field__input" name="password" type="password" placeholder="пароль" required autocomplete="current-password">
+    </label>
+    <p class="form-error" id="error" role="alert" hidden></p>
+    <button class="btn" type="submit">Войти</button>
+  </form>
+</main>
+<script type="module" src="js/forms.js"></script>
+</body>
+</html>

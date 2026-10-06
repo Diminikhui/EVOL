@@ -5,7 +5,7 @@ getProducts();
 
 // Асинхронная функция получения данных из файла products.json
 async function getProducts() {
-	const response = await fetch('./js/products.json');
+	const response = await fetch('./data/products.json');
 	const productsArray = await response.json();
 	renderProducts(productsArray);
 	addFilterEventListeners(productsArray);
@@ -16,7 +16,7 @@ function renderProducts(productsArray) {
 	productsArray.forEach(function (item) {
 		const productHTML = `<div class="col-md-6">
 			<div class="card mb-4 tovar" data-id="${item.id}">
-				<img class="product-img" src="img/roll/${item.imgSrc}" alt="">
+				<img class="product-img" src="img/products/${item.imgSrc}" alt="">
 				<div class="card-body text-center">
 					<h4 class="item-title">${item.title}</h4>
 					<p><small data-items-in-box class="text-muted">${item.itemsInBox}.</small></p>

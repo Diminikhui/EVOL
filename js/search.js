@@ -1,5 +1,5 @@
 	function loadProducts(callback) {
-	fetch('./js/products.json')
+	fetch('./data/products.json')
 		.then(response => response.json())
 		.then(data => callback(data))
 		.catch(error => console.error('Ошибка загрузки файла JSON:', error));

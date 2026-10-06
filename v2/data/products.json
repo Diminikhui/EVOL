@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Товар 1",
+    "category": "Эмали",
+    "summary": "Краткое описание",
+    "weight": 11,
+    "price": 1000,
+    "image": "paint.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Краска",
+    "category": "Эмали",
+    "summary": "Краткое описание",
+    "weight": 11,
+    "price": 1500,
+    "image": "paint.jpg",
+    "oldPrice": 1900
+  },
+  {
+    "id": 3,
+    "title": "Товар 3",
+    "category": "Лаки",
+    "summary": "Краткое описание",
+    "weight": 11,
+    "price": 2000,
+    "image": "paint.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Товар 4",
+    "category": "Лаки",
+    "summary": "Краткое описание",
+    "weight": 11,
+    "price": 2500,
+    "image": "paint.jpg",
+    "oldPrice": 3200
+  },
+  {
+    "id": 5,
+    "title": "Товар 5",
+    "category": "Грунтовки",
+    "summary": "Краткое описание",
+    "weight": 11,
+    "price": 3000,
+    "image": "paint.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Товар 6",
+    "category": "Грунтовки",
+    "summary": "Краткое описание",
+    "weight": 11,
+    "price": 3500,
+    "image": "paint.jpg"
+  }
+]

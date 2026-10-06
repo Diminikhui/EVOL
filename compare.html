@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Сравнение версий — EVOL</title>
+  <style>
+    body { margin: 0; padding: 16px; font: 16px system-ui, sans-serif; background: #222; color: #eee; }
+    nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    nav button { padding: 6px 14px; border: 0; border-radius: 8px; background: #444; color: #eee; cursor: pointer; }
+    nav button[aria-pressed="true"] { background: #ac40ab; }
+    .pair { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+    figure { margin: 0; text-align: center; }
+    iframe { width: 375px; height: 760px; border: 0; border-radius: 16px; background: #fff; }
+  </style>
+</head>
+<body>
+  <nav id="nav"></nav>
+  <div class="pair">
+    <figure><iframe id="a" title="Старая версия"></iframe><figcaption>Старая (корень)</figcaption></figure>
+    <figure><iframe id="b" title="Новая версия"></iframe><figcaption>Новая (v2/)</figcaption></figure>
+  </div>
+  <script>
+    const pages = { 'Старт': 'index', 'Вход': 'login', 'Регистрация': 'register', 'Адрес': 'address', 'Каталог': 'catalog', 'Кабинет': 'account' };
+    const nav = document.getElementById('nav');
+    function show(page, button) {
+      a.src = `${page}.html`; b.src = `v2/${page}.html`;
+      nav.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x === button));
+    }
+    for (const [label, page] of Object.entries(pages)) {
+      const button = Object.assign(document.createElement('button'), { textContent: label });
+      button.onclick = () => show(page, button);
+      nav.append(button);
+    }
+    nav.firstChild.click();
+  </script>
+</body>
+</html>

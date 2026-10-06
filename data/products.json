@@ -1,0 +1,62 @@
+[
+	{
+		"id": 1,
+		"title": "товар 1",
+		"itemsInBox": "краткое описание ",
+		"weight": 11,
+		"price": 1000,
+		"imgSrc": "paint.jpg",
+		"description": "описание товара 1",
+		"link": "product.html"
+	},
+	{
+		"id": 2,
+		"title": "краска",
+		"itemsInBox": "краткое описание ",
+		"weight": 11,
+		"price": 1500,
+		"imgSrc": "paint.jpg",
+		"description": "описание товара 2 описание товара 2",
+		"link": "https://www.google.com/?client=safari&channel=iphone_bm"
+	},
+	{
+		"id": 3,
+		"title": "товар 3",
+		"itemsInBox": "краткое описание ",
+		"weight": 11,
+		"price": 2000,
+		"imgSrc": "paint.jpg",
+		"description": "описание товара 3 описание товара 3 описание товара 3",
+		"link": "https://www.google.com/?client=safari&channel=iphone_bm"
+	},
+	{
+		"id": 4,
+		"title": "товар 4",
+		"itemsInBox": "краткое описание ",
+		"weight": 11,
+		"price": 2500,
+		"imgSrc": "paint.jpg",
+		"description": "описание товара 4 описание товара 4 описание товара 4 описание товара 4 ",
+		"link": "https://www.google.com/?client=safari&channel=iphone_bm"
+	},
+	{
+		"id": 5,
+		"title": "товар 5",
+		"itemsInBox": "краткое описание ",
+		"weight": 11,
+		"price": 3000,
+		"imgSrc": "paint.jpg",
+		"description": "описание товара 5 описание товара 5 описание товара 5 описание товара 5 описание товара 5 ",
+		"link": "https://www.google.com/?client=safari&channel=iphone_bm"
+	},
+	{
+		"id": 6,
+		"title": "товар 6",
+		"itemsInBox": "краткое описание ",
+		"weight": 11,
+		"price": 3500,
+		"imgSrc": "paint.jpg",
+		"description": "описание товара 6 описание товара 6 описание товара 6 описание товара 6 описание товара 6 описание товара 6 ",
+		"link": "https://www.google.com/?client=safari&channel=iphone_bm"
+	}
+]
