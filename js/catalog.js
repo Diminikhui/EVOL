@@ -1,5 +1,5 @@
 import { el } from './dom.js';
-import { cart, orders, profile, loadProducts, formatPrice, priceCart, FREE_DELIVERY_FROM } from './store.js';
+import { cart, loadProducts, formatPrice, priceCart, FREE_DELIVERY_FROM } from './store.js';
 
 const grid = document.querySelector('#grid');
 const chips = document.querySelector('#chips');
@@ -91,19 +91,7 @@ function renderCart() {
     ...(empty ? [] : [el('button', { type: 'button', className: 'btn', textContent: 'Заказать', onclick: checkout })]));
 }
 
-function checkout() {
-  const { lines, total } = priceCart(cart.get(), products);
-  orders.add({
-    id: Date.now(),
-    date: new Date().toISOString(),
-    total,
-    status: 'Принят',
-    address: profile.get().street || '',
-    lines: lines.map(({ product, qty }) => ({ id: product.id, title: product.title, image: product.image, qty, price: product.price })),
-  });
-  cart.clear();
-  location.href = 'account.html';
-}
+const checkout = () => { location.href = 'checkout.html'; };
 
 document.querySelector('#search').addEventListener('input', (event) => {
   query = event.target.value;

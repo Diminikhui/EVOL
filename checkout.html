@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Оформление заказа — EVOL</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="header">
+  <a href="catalog.html"><img class="header__logo" src="img/logo-2.svg" alt="EVOL"></a>
+  <a class="header__account" href="account.html" aria-label="Личный кабинет"><img src="img/person.svg" alt=""></a>
+</header>
+<main class="checkout" id="checkout">
+  <a class="item__back" href="catalog.html">← В каталог</a>
+  <section class="panel">
+    <h1 class="panel__title">Ваш заказ</h1>
+    <ul class="summary" id="summary"></ul>
+    <dl class="totals" id="totals"></dl>
+  </section>
+  <form class="panel" id="order-form">
+    <h2 class="panel__title">Адрес доставки</h2>
+      <label class="field">
+        <span class="field__label">Город</span>
+        <input class="field__input" name="city" placeholder="город" required autocomplete="address-level2">
+      </label>
+      <label class="field">
+        <span class="field__label">Улица / дом</span>
+        <input class="field__input" name="street" placeholder="улица и дом" required autocomplete="street-address">
+      </label>
+      <div class="field-row">
+      <label class="field">
+        <span class="field__label">Квартира</span>
+        <input class="field__input" name="flat" placeholder="кв." required inputmode="numeric">
+      </label>
+      <label class="field">
+        <span class="field__label">Этаж</span>
+        <input class="field__input" name="floor" placeholder="этаж" inputmode="numeric">
+      </label>
+      <label class="field">
+        <span class="field__label">Домофон</span>
+        <input class="field__input" name="intercom" placeholder="код" >
+      </label>
+      </div>
+      <label class="field">
+        <span class="field__label">Телефон</span>
+        <input class="field__input" name="phone" placeholder="номер для связи с курьером" required type="tel" autocomplete="tel">
+      </label>
+      <label class="field">
+        <span class="field__label">Комментарий</span>
+        <input class="field__input" name="comment" placeholder="пожелания курьеру" >
+      </label>
+    <fieldset class="pay">
+      <legend class="field__label">Оплата</legend>
+      <label><input type="radio" name="payment" value="Картой курьеру" checked> Картой курьеру</label>
+      <label><input type="radio" name="payment" value="Наличными"> Наличными</label>
+    </fieldset>
+    <p class="form-error" id="error" role="alert" hidden></p>
+    <button class="btn" type="submit" id="submit">Подтвердить заказ</button>
+  </form>
+</main>
+<script type="module" src="js/checkout.js"></script>
+</body>
+</html>
