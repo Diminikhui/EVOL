@@ -29,8 +29,11 @@ test('каталог публичный и содержит товары из н
   const res = await json('/api/products');
   const list = await res.json();
   assert.equal(res.status, 200);
-  assert.equal(list.length, 6);
-  assert.equal(list[1].oldPrice, 1900);
+  assert.equal(list.length, 100);
+  assert.equal(new Set(list.map((p) => p.category)).size, 10);
+  assert.equal(list[1].oldPrice, 2790);
+  assert.ok(list.every((p) => p.image.startsWith('catalog/') && Number.isInteger(p.stock)));
+  assert.ok(list.some((p) => p.stock === 0), 'остатки берутся из products.json');
 });
 
 test('без входа нельзя менять товары и смотреть неактивные', async () => {
@@ -67,6 +70,13 @@ test('админ создаёт, меняет и удаляет товар', asy
 
   assert.equal((await json(`/api/products/${product.id}`, { method: 'DELETE' })).status, 200);
   assert.equal((await json(`/api/products/${product.id}`, { method: 'DELETE' })).status, 404);
+});
+
+test('товары из каталога можно править вместе с их картинкой', async () => {
+  const [first] = await (await json('/api/products?all=1')).json();
+  const res = await json(`/api/products/${first.id}`, { method: 'PUT', body: { ...first, stock: 42 } });
+  assert.equal(res.status, 200);
+  assert.equal((await res.json()).image, first.image);
 });
 
 test('данные товара проверяются', async () => {

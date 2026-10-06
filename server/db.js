@@ -93,10 +93,10 @@ function seed(db) {
     if (existsSync(file)) {
       const insert = db.prepare(`INSERT INTO products
         (id, title, category, summary, description, weight, price, old_price, image, stock)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 100)`);
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`);
       for (const p of JSON.parse(readFileSync(file, 'utf8'))) {
         insert.run(p.id, p.title, p.category ?? '', p.summary ?? '', p.description ?? '',
-          p.weight ?? 0, p.price, p.oldPrice ?? null, p.image ?? '');
+          p.weight ?? 0, p.price, p.oldPrice ?? null, p.image ?? '', p.stock ?? 100);
       }
     }
   }

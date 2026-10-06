@@ -58,7 +58,7 @@ function validateProduct(body) {
   const weight = Number(body.weight ?? 0);
   if (!Number.isFinite(weight) || weight < 0) throw new HttpError(400, 'Вес указан неверно');
   const image = text(body.image, 200, 'Фото');
-  if (image && !/^(uploads\/[\w.-]+|[\w.-]+)$/.test(image)) throw new HttpError(400, 'Недопустимое имя файла фото');
+  if (image && !/^((uploads|catalog)\/[\w.-]+|[\w.-]+)$/.test(image)) throw new HttpError(400, 'Недопустимое имя файла фото');
   return {
     title: text(body.title, 120, 'Название', true), category: text(body.category, 60, 'Категория'),
     summary: text(body.summary, 160, 'Краткое описание'), description: text(body.description, 2000, 'Описание'),

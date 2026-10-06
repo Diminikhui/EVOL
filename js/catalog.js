@@ -1,5 +1,6 @@
 import { el } from './dom.js';
 import './notify.js';
+import { formatWeight } from './rules.js';
 import { cart, favorites, loadProducts, formatPrice, priceCart, imageUrl, stockOf, inStock, FREE_DELIVERY_FROM } from './store.js';
 
 const grid = document.querySelector('#grid');
@@ -54,7 +55,7 @@ function renderProduct(p) {
   return el('article', { className: `product${inStock(p) ? '' : ' product--sold'}` },
     el('div', { className: 'product__photo' },
       el('a', { className: 'product__link', href: `product.html?id=${p.id}`, ariaLabel: p.title },
-        el('img', { className: 'product__img', src: imageUrl(p.image), alt: '' })),
+        el('img', { className: 'product__img', src: imageUrl(p.image), alt: '', loading: 'lazy' })),
       discount ? el('span', { className: 'badge', textContent: `−${discount}%` }) : null,
       heart(p),
       control),
@@ -62,7 +63,7 @@ function renderProduct(p) {
       formatPrice(p.price),
       discount ? el('span', { className: 'product__old', textContent: formatPrice(p.oldPrice) }) : null),
     stockOf(p) > 0 && stockOf(p) <= 5 ? el('p', { className: 'product__low', textContent: `Осталось ${stockOf(p)}` }) : null,
-    el('h2', { className: 'product__title' }, el('a', { href: `product.html?id=${p.id}`, textContent: `${p.title} ` }), el('small', { textContent: `${p.weight} кг` })),
+    el('h2', { className: 'product__title' }, el('a', { href: `product.html?id=${p.id}`, textContent: `${p.title} ` }), el('small', { textContent: formatWeight(p.weight) })),
     el('p', { className: 'product__summary', textContent: p.summary }));
 }
 

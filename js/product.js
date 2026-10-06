@@ -1,5 +1,6 @@
 import { el } from './dom.js';
 import './notify.js';
+import { formatWeight } from './rules.js';
 import { cart, favorites, loadProducts, formatPrice, imageUrl, stockOf, inStock } from './store.js';
 
 const root = document.querySelector('#item');
@@ -35,7 +36,7 @@ function render(p) {
         onclick: () => { favorites.toggle(p.id); render(p); } })),
     el('span', { className: 'item__chip', textContent: p.category }),
     el('h1', { className: 'item__title', textContent: p.title }),
-    el('p', { className: 'item__meta', textContent: `${p.summary} · ${p.weight} кг${stock !== null && stock > 0 && stock <= 5 ? ` · осталось ${stock}` : ''}` }),
+    el('p', { className: 'item__meta', textContent: `${p.summary} · ${formatWeight(p.weight)}${stock !== null && stock > 0 && stock <= 5 ? ` · осталось ${stock}` : ''}` }),
     el('p', { className: 'item__text', textContent: p.description ?? '' }),
     el('div', { className: 'item__bar' },
       el('div', { className: `price${discount ? ' product__price--sale' : ''}` },

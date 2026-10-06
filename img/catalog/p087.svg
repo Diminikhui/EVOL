@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36 32 328 340" role="img">
+<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset=".35" stop-color="#fff" stop-opacity="0"/><stop offset=".75" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></linearGradient></defs>
+<ellipse cx="200" cy="360" rx="76" ry="13" fill="#000" opacity=".10"/>
+<path d="M170 70h60v46c0 16 54 30 54 70v156c0 14-30 20-84 20s-84-6-84-20V186c0-40 54-54 54-70z" fill="#eef1f3" opacity=".95"/>
+<path d="M146 220h108v118c0 10-24 14-54 14s-54-4-54-14z" fill="#e8d8a0" opacity=".85"/>
+<path d="M170 70h60v46c0 16 54 30 54 70v156c0 14-30 20-84 20s-84-6-84-20V186c0-40 54-54 54-70z" fill="url(#g)"/>
+<rect x="150" y="248" width="100" height="56" rx="6" fill="#fff"/>
+<rect x="162" y="260" width="76" height="9" rx="3" fill="#b4a87c"/>
+<rect x="162" y="278" width="56" height="7" rx="3" fill="#b4a87c" opacity=".6"/>
+<rect x="172" y="46" width="56" height="28" rx="6" fill="#b4a87c"/>
+</svg>
