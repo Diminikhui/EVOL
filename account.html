@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Личный кабинет — EVOL</title>
+  <link rel="icon" href="img/logo-2.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -21,8 +22,30 @@
     <p class="status" id="status"></p>
   </section>
   <section class="panel">
-    <h2 class="panel__title">Прошлые заказы</h2>
+    <h2 class="panel__title">Бонусы</h2>
+    <p class="bonus-balance" id="bonus-balance"></p>
+    <p class="empty-hint" id="bonus-hint"></p>
+  </section>
+  <section class="panel">
+    <h2 class="panel__title">Заказы</h2>
     <div id="orders"></div>
+  </section>
+  <section class="panel">
+    <h2 class="panel__title">Избранное</h2>
+    <div id="favorites"></div>
+  </section>
+  <section class="panel">
+    <h2 class="panel__title">Мои адреса</h2>
+    <div id="addresses"></div>
+    <a class="btn btn--outline btn--sm add-address" href="address.html">+ Добавить адрес</a>
+  </section>
+  <section class="panel">
+    <h2 class="panel__title">Уведомления</h2>
+    <label class="switch">
+      <input type="checkbox" id="notify-toggle">
+      <span>Сообщать о смене статуса заказа</span>
+    </label>
+    <p class="empty-hint" id="notify-hint"></p>
   </section>
 </main>
 <script type="module" src="js/account.js"></script>

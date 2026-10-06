@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Адрес доставки — EVOL</title>
+  <link rel="icon" href="img/logo-2.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <main class="panel">
   <div class="panel__icon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/></svg></div>
   <h1 class="panel__title">Адрес доставки</h1>
-  <form data-next="catalog.html" data-save="city,street,flat,floor,intercom,comment">
+  <form data-address data-next="catalog.html" data-save="city,street,flat,floor,intercom,comment">
     <label class="field">
       <span class="field__label">Город</span>
       <input class="field__input" name="city" type="text" placeholder="к сожалению, сейчас доступен только один город" required >

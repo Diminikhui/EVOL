@@ -1,5 +1,6 @@
 import { el } from './dom.js';
-import { cart, loadProducts, formatPrice } from './store.js';
+import './notify.js';
+import { cart, favorites, loadProducts, formatPrice } from './store.js';
 
 const root = document.querySelector('#item');
 const id = Number(new URLSearchParams(location.search).get('id'));
@@ -19,7 +20,13 @@ function render(p) {
 
   root.replaceChildren(
     el('a', { className: 'item__back', href: 'catalog.html', textContent: '← В каталог' }),
-    el('div', { className: 'item__photo' }, el('img', { src: `img/${p.image}`, alt: p.title })),
+    el('div', { className: 'item__photo' },
+      el('img', { src: `img/${p.image}`, alt: p.title }),
+      el('button', {
+        type: 'button', className: `heart${favorites.has(p.id) ? ' heart--on' : ''}`,
+        textContent: favorites.has(p.id) ? '♥' : '♡', ariaPressed: String(favorites.has(p.id)),
+        ariaLabel: favorites.has(p.id) ? 'Убрать из избранного' : 'В избранное',
+        onclick: () => { favorites.toggle(p.id); render(p); } })),
     el('span', { className: 'item__chip', textContent: p.category }),
     el('h1', { className: 'item__title', textContent: p.title }),
     el('p', { className: 'item__meta', textContent: `${p.summary} · ${p.weight} кг` }),

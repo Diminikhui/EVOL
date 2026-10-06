@@ -1,0 +1,5 @@
+[
+  { "code": "WELCOME10", "type": "percent",  "value": 10,  "once": true, "title": "−10% на первый заказ" },
+  { "code": "KRASKA500", "type": "fixed",    "value": 500, "minSubtotal": 3000, "title": "−500 ₽ при заказе от 3 000 ₽" },
+  { "code": "FREEDEL",   "type": "delivery", "value": 0,   "title": "Бесплатная доставка" }
+]

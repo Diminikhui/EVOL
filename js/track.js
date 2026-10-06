@@ -1,3 +1,4 @@
+import './notify.js';
 import { el } from './dom.js';
 import { orders, formatPrice } from './store.js';
 import { STEPS, statusOf, formatEta } from './status.js';
@@ -59,6 +60,9 @@ function render() {
           el('img', { src: `img/${l.image || 'paint.jpg'}`, alt: '' }),
           el('span', { textContent: `${l.title} × ${l.qty}` }),
           el('span', { className: 'price', textContent: formatPrice(l.price * l.qty) })))),
+      order.discount ? row('Скидка', `−${formatPrice(order.discount)} (${order.promo})`) : null,
+      order.bonusSpent ? row('Оплачено бонусами', formatPrice(order.bonusSpent)) : null,
+      order.bonusEarned ? row('Начислим бонусов', `+${order.bonusEarned} после доставки`) : null,
       el('p', { className: 'track__total' }, el('span', { textContent: 'Итого' }), el('span', { textContent: formatPrice(order.total) }))));
 }
 

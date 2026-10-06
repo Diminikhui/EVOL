@@ -1,4 +1,4 @@
-import { profile } from './store.js';
+import { profile, addresses } from './store.js';
 
 // Форма: <form data-next="страница" data-save="поля,через,запятую">
 const form = document.querySelector('form[data-next]');
@@ -17,5 +17,9 @@ form.addEventListener('submit', (event) => {
   // Пароли не сохраняем: бэкенда нет, это прототип.
   const saved = (form.dataset.save ?? '').split(',').filter(Boolean);
   profile.merge(Object.fromEntries(saved.map((key) => [key, data[key]])));
+  if (form.dataset.address !== undefined && data.street) {
+    addresses.add({ city: data.city, street: data.street, flat: data.flat, floor: data.floor,
+      intercom: data.intercom, comment: data.comment });
+  }
   location.href = form.dataset.next;
 });

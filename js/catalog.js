@@ -1,5 +1,6 @@
 import { el } from './dom.js';
-import { cart, loadProducts, formatPrice, priceCart, FREE_DELIVERY_FROM } from './store.js';
+import './notify.js';
+import { cart, favorites, loadProducts, formatPrice, priceCart, FREE_DELIVERY_FROM } from './store.js';
 
 const grid = document.querySelector('#grid');
 const chips = document.querySelector('#chips');
@@ -8,6 +9,7 @@ const cartBox = document.querySelector('#cart');
 let products = [];
 let category = 'Все';
 let query = '';
+const FAVORITES = '♥ Избранное';
 
 const counterEl = (qty, onChange) => {
   const output = el('output', { textContent: qty });
@@ -19,13 +21,22 @@ const counterEl = (qty, onChange) => {
 };
 
 function renderChips() {
-  const names = ['Все', ...new Set(products.map((p) => p.category))];
+  const names = ['Все', FAVORITES, ...new Set(products.map((p) => p.category))];
   chips.replaceChildren(...names.map((name) =>
     el('button', {
       type: 'button', className: 'chip', textContent: name,
       ariaPressed: String(name === category),
       onclick: () => { category = name; renderChips(); renderGrid(); },
     })));
+}
+
+function heart(p) {
+  const active = favorites.has(p.id);
+  return el('button', {
+    type: 'button', className: `heart${active ? ' heart--on' : ''}`, textContent: active ? '♥' : '♡',
+    ariaLabel: active ? 'Убрать из избранного' : 'В избранное', ariaPressed: String(active),
+    onclick: () => { favorites.toggle(p.id); renderGrid(); },
+  });
 }
 
 function renderProduct(p) {
@@ -43,6 +54,7 @@ function renderProduct(p) {
       el('a', { className: 'product__link', href: `product.html?id=${p.id}`, ariaLabel: p.title },
         el('img', { className: 'product__img', src: `img/${p.image}`, alt: '' })),
       discount ? el('span', { className: 'badge', textContent: `−${discount}%` }) : null,
+      heart(p),
       control),
     el('div', { className: `product__price${discount ? ' product__price--sale' : ''}` },
       formatPrice(p.price),
@@ -60,11 +72,11 @@ function update(id, delta) {
 function renderGrid() {
   const needle = query.trim().toLowerCase();
   const visible = products.filter((p) =>
-    (category === 'Все' || p.category === category) &&
+    (category === 'Все' || (category === FAVORITES ? favorites.has(p.id) : p.category === category)) &&
     (!needle || [p.title, p.summary, p.description, p.category].some((s) => s?.toLowerCase().includes(needle))));
   grid.replaceChildren(...(visible.length
     ? visible.map(renderProduct)
-    : [el('p', { className: 'empty-hint', textContent: 'Ничего не найдено' })]));
+    : [el('p', { className: 'empty-hint', textContent: category === FAVORITES && !needle ? 'В избранном пока пусто' : 'Ничего не найдено' })]));
 }
 
 function renderCart() {
