@@ -7,6 +7,7 @@ const cartBox = document.querySelector('#cart');
 
 let products = [];
 let category = 'Все';
+let query = '';
 
 const counterEl = (qty, onChange) => {
   const output = el('output', { textContent: qty });
@@ -39,13 +40,14 @@ function renderProduct(p) {
 
   return el('article', { className: 'product' },
     el('div', { className: 'product__photo' },
-      el('img', { className: 'product__img', src: `img/${p.image}`, alt: p.title }),
+      el('a', { className: 'product__link', href: `product.html?id=${p.id}`, ariaLabel: p.title },
+        el('img', { className: 'product__img', src: `img/${p.image}`, alt: '' })),
       discount ? el('span', { className: 'badge', textContent: `−${discount}%` }) : null,
       control),
     el('div', { className: `product__price${discount ? ' product__price--sale' : ''}` },
       formatPrice(p.price),
       discount ? el('span', { className: 'product__old', textContent: formatPrice(p.oldPrice) }) : null),
-    el('h2', { className: 'product__title' }, `${p.title} `, el('small', { textContent: `${p.weight} кг` })),
+    el('h2', { className: 'product__title' }, el('a', { href: `product.html?id=${p.id}`, textContent: `${p.title} ` }), el('small', { textContent: `${p.weight} кг` })),
     el('p', { className: 'product__summary', textContent: p.summary }));
 }
 
@@ -56,8 +58,13 @@ function update(id, delta) {
 }
 
 function renderGrid() {
-  const visible = products.filter((p) => category === 'Все' || p.category === category);
-  grid.replaceChildren(...visible.map(renderProduct));
+  const needle = query.trim().toLowerCase();
+  const visible = products.filter((p) =>
+    (category === 'Все' || p.category === category) &&
+    (!needle || [p.title, p.summary, p.description, p.category].some((s) => s?.toLowerCase().includes(needle))));
+  grid.replaceChildren(...(visible.length
+    ? visible.map(renderProduct)
+    : [el('p', { className: 'empty-hint', textContent: 'Ничего не найдено' })]));
 }
 
 function renderCart() {
@@ -97,6 +104,11 @@ function checkout() {
   cart.clear();
   location.href = 'account.html';
 }
+
+document.querySelector('#search').addEventListener('input', (event) => {
+  query = event.target.value;
+  renderGrid();
+});
 
 try {
   products = await loadProducts();
