@@ -1,105 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	<title>EVOL</title>
-	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700&amp;subset=cyrillic-ext" rel="stylesheet">
-	<style>
-		.filter-container .btn {
-			width: 100%;
-		}
-		.footer {
-			background-color: transparent;
-		}
-			</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог — EVOL</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-	<header class="header">
-		<a href="catalog.html" >
-				<img  class="logo" src="img/logo/logo-2.svg" width="200" alt="лого компании">
-			</a>
-		<button class="acount" type="button" ><a href="account.html"></a><img class="people" src="img/icons/person.svg" ></button>
-	</header>
-
-	<div id="searchResults"></div>
-
-	<div class="container mb-5">
-		<div class="row">
-			<!-- Фильтрация -->
-			<div class="col-sm-2 filter-container">
-				<div class="filter-buttons">
-					<button class="btn btn-primary mb-2" data-filter="1">1</button>
-					<button class="btn btn-primary mb-2" data-filter="2">2</button>
-					<button class="btn btn-primary mb-2" data-filter="3">3</button>
-					<button class="btn btn-primary mb-2" data-filter="4">4</button>
-					<button class="btn btn-primary mb-2" data-filter="5">5</button>
-					<button class="btn btn-primary mb-2" data-filter="6">6</button>
-				</div>
-			</div>
-
-			<!-- Товары -->
-			<div class="col-sm-10">
-				<div class="row products" id="products-container"></div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Footer -->
-	<footer class="footer fixed-bottom">
-		<div class="container korzina">
-			<div class="row">
-				<div class="col-sm-12">
-					<!-- Корзина -->
-					<div class="card mb-4">
-						<div class="card-body-korzina korzina">
-							<h5 class="card-title">Ваш заказ</h5>
-							<div data-cart-empty class="alert alert-secondary" role="alert">
-								Корзина пуста
-							</div>
-
-							<!-- cart-wrapper -->
-							<div class="cart-wrapper"></div>
-							<!-- // cart-wrapper -->
-
-							<!-- Стоимость заказа -->
-							<div class="cart-total">
-								<p data-cart-delivery class="none">
-									<!-- <span class="h5">Доставка:</span>
-									<span class="delivery-cost">500 ₽</span><br> -->
-									<!-- <span class="small">Бесплатно при заказе от 5000 ₽</span> -->
-								</p>
-								<p class="itogo"><span class="itog">Итого:</span>
-									<span class="total-price">0</span>
-									<span class="rouble">₽</span></p>
-							</div>
-							<!-- // Стоимость заказа -->
-						</div>
-
-						<!-- Оформить заказ -->
-						<div id="order-form" class="card-body-korzina border-top none">
-							<h5 class="card-title2">Оформить заказ</h5>
-							<form class="low-button">
-								<button type="submit" class="btn btn-primary">Заказать</button>
-							</form>
-						</div>
-						<!-- // Оформить заказ -->
-					</div>
-					<!-- // Корзина -->
-				</div>
-			</div>
-		</div>
-	</footer>
-
-	<!-- Подключаем скрипты -->
-	<script src="./js/renderProducts.js"></script>
-	<script src="./js/calcCartPrice.js"></script>
-	<script src="./js/toggleCartStatus.js"></script>
-	<script src="./js/counter.js"></script>
-	<script src="./js/cart.js"></script>
-	<script src="./js/filterProducts.js"></script>
+<header class="header">
+  <a href="catalog.html"><img class="header__logo" src="img/logo-2.svg" alt="EVOL"></a>
+  <a class="header__account" href="account.html" aria-label="Личный кабинет"><img src="img/person.svg" alt=""></a>
+</header>
+<main class="catalog">
+  <div class="chips" id="chips" role="group" aria-label="Категории"></div>
+  <div class="grid" id="grid"></div>
+</main>
+<aside class="cart" id="cart" aria-label="Корзина"></aside>
+<script type="module" src="js/catalog.js"></script>
 </body>
 </html>

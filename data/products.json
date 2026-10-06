@@ -1,62 +1,58 @@
 [
-	{
-		"id": 1,
-		"title": "товар 1",
-		"itemsInBox": "краткое описание ",
-		"weight": 11,
-		"price": 1000,
-		"imgSrc": "paint.jpg",
-		"description": "описание товара 1",
-		"link": "product.html"
-	},
-	{
-		"id": 2,
-		"title": "краска",
-		"itemsInBox": "краткое описание ",
-		"weight": 11,
-		"price": 1500,
-		"imgSrc": "paint.jpg",
-		"description": "описание товара 2 описание товара 2",
-		"link": "https://www.google.com/?client=safari&channel=iphone_bm"
-	},
-	{
-		"id": 3,
-		"title": "товар 3",
-		"itemsInBox": "краткое описание ",
-		"weight": 11,
-		"price": 2000,
-		"imgSrc": "paint.jpg",
-		"description": "описание товара 3 описание товара 3 описание товара 3",
-		"link": "https://www.google.com/?client=safari&channel=iphone_bm"
-	},
-	{
-		"id": 4,
-		"title": "товар 4",
-		"itemsInBox": "краткое описание ",
-		"weight": 11,
-		"price": 2500,
-		"imgSrc": "paint.jpg",
-		"description": "описание товара 4 описание товара 4 описание товара 4 описание товара 4 ",
-		"link": "https://www.google.com/?client=safari&channel=iphone_bm"
-	},
-	{
-		"id": 5,
-		"title": "товар 5",
-		"itemsInBox": "краткое описание ",
-		"weight": 11,
-		"price": 3000,
-		"imgSrc": "paint.jpg",
-		"description": "описание товара 5 описание товара 5 описание товара 5 описание товара 5 описание товара 5 ",
-		"link": "https://www.google.com/?client=safari&channel=iphone_bm"
-	},
-	{
-		"id": 6,
-		"title": "товар 6",
-		"itemsInBox": "краткое описание ",
-		"weight": 11,
-		"price": 3500,
-		"imgSrc": "paint.jpg",
-		"description": "описание товара 6 описание товара 6 описание товара 6 описание товара 6 описание товара 6 описание товара 6 ",
-		"link": "https://www.google.com/?client=safari&channel=iphone_bm"
-	}
+  {
+    "id": 1,
+    "title": "Товар 1",
+    "category": "Эмали",
+    "summary": "Краткое описание",
+    "weight": 11,
+    "price": 1000,
+    "image": "paint.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Краска",
+    "category": "Эмали",
+    "summary": "Краткое описание",
+    "weight": 11,
+    "price": 1500,
+    "image": "paint.jpg",
+    "oldPrice": 1900
+  },
+  {
+    "id": 3,
+    "title": "Товар 3",
+    "category": "Лаки",
+    "summary": "Краткое описание",
+    "weight": 11,
+    "price": 2000,
+    "image": "paint.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Товар 4",
+    "category": "Лаки",
+    "summary": "Краткое описание",
+    "weight": 11,
+    "price": 2500,
+    "image": "paint.jpg",
+    "oldPrice": 3200
+  },
+  {
+    "id": 5,
+    "title": "Товар 5",
+    "category": "Грунтовки",
+    "summary": "Краткое описание",
+    "weight": 11,
+    "price": 3000,
+    "image": "paint.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Товар 6",
+    "category": "Грунтовки",
+    "summary": "Краткое описание",
+    "weight": 11,
+    "price": 3500,
+    "image": "paint.jpg"
+  }
 ]
